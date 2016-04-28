@@ -1,0 +1,62 @@
+<resources>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="app_name">RestaurantRecommendation</string>
+    <!--<string name="action_settings">Settings</string>-->
+    <string name="title_activity_mannual_search">MannualSearch</string>
+    <string name="title_activity_result_list">ResultList</string>
+    <string name="text">Squid blog crucifix Marfa, consectetur vero placeat mixtape. Non seitan sriracha eu, do Banksy fashion axe cred qui vegan delectus consequat Helvetica mollit. XOXO gluten-free disrupt, gastropub officia cliche chillwave hella pop-up. Fixie swag raw denim, YOLO craft beer assumenda occupy veniam photo booth pug consectetur next level Portland tote bag +1. Mlkshk PBR aliquip placeat Wes Anderson.</string>
+    <string name="title">My Description</string>
+    <string name="context_menu">Context menu</string>
+    <string-array name="Score">
+        <item>Service</item>
+        <item>Flavor</item>
+        <item>Environment</item>
+
+    </string-array>
+    <string-array name="Average">
+        <item>&lt; 10</item>
+        <item>&lt; 20</item>
+        <item>&lt; 30</item>
+        <item>&lt; 40</item>
+        <item>&lt; 50</item>
+        <item>&lt; 60</item>
+        <item>&lt; 70</item>
+        <item>&lt; 80</item>
+        <item>&lt; 90</item>
+        <item>&lt; 100</item>
+    </string-array>
+    <string-array name="Distance">
+        <item>&lt; 500m</item>
+        <item>&lt; 1000m</item>
+        <item>&lt; 1500m</item>
+        <item>other</item>
+    </string-array>
+
+    <string-array name="Destination">
+        <item>WenXing Square</item>
+        <item>Dushu Lake</item>
+        <item>XJTLU</item>
+        <item>All</item>
+
+    </string-array>
+    <string name="title_activity_mrestaurant">MRestaurant</string>
+    <string name="title_activity_srestaurant">SRestaurant</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_special_search">SpecialSearch</string>
+    <string name="title_activity_activity_for_special_search">ActivityForSpecialSearch</string>
+    <string name="title_activity_personal_search">personalSearch</string>
+    <string name="title_activity_additional_function">AdditionalFunction</string>
+    <string name="title_activity_special_activity_search">SpecialActivitySearch</string>
+
+    <string name="radio1_text">微信</string>
+    <string name="radio2_text">通讯录</string>
+    <string name="radio3_text">朋友们</string>
+    <string name="radio4_text">设置</string>
+    <string name="mannual">Mannual Search</string>
+    <string name="personal">Personal Recommendation</string>
+    <string name="more">More Function</string>
+    <string name="title_activity_register">Register</string>
+
+
+</resources>

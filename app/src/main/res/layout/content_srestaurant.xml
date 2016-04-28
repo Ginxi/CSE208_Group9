@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rest"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="350dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/e" />
+
+    <TableLayout
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/ServiceScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="40px"
+                android:textSize="20px"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/EnvironScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="40px"
+                android:textSize="20px"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/TasteScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="40px"
+                android:textSize="20px"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        android:layout_weight="0.39"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:stretchColumns="0,4">
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address:"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:minWidth="350px"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <TextView android:layout_column="4" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/phoneNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:minWidth="350px"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <TextView android:layout_column="4" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <Button
+                android:id="@+id/transportation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:background="#00000000"
+                android:text="View Transportation"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+            <TextView />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/FromSRestBackToResultList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+
+</LinearLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgfr"
+    android:orientation="vertical"
+    android:weightSum="1"
+
+    >
+
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:drawableLeft="@drawable/back" />
+
+    <ImageView
+
+        android:id="@+id/imageView"
+        android:layout_width="403dp"
+        android:layout_height="258dp"
+        android:background="@drawable/xlxr" />
+
+    <TableLayout
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/ServiceScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/service"
+                android:minWidth="40px"
+                android:textSize="20px"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/EnvironScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/environment"
+                android:minWidth="40px"
+                android:textSize="20px"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/TasteScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/taste"
+                android:minWidth="40px"
+                android:textSize="20px"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        android:layout_weight="0.39"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:stretchColumns="0,4">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Address:"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:drawableRight="@drawable/address"
+                android:minWidth="350px"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <TextView android:layout_column="4" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textSize="30px"
+
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/phoneNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:drawableRight="@drawable/phone"
+                android:minWidth="350px"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <TextView android:layout_column="4" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/transportation"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:background="#00000000"
+                android:drawableRight="@drawable/trspt"
+                android:text="View Transportation"
+                android:textAllCaps="false"
+                android:textColor="#1e1f1f"
+                android:textSize="40px"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
+
+
+

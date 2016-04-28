@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></FrameLayout>
+
+        <!-- 隐藏TabWidget -->
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"></TabWidget>
+
+        <!-- 视觉上,用单选按钮替代TabWidget -->
+        <RadioGroup
+            android:id="@+id/main_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <RadioButton
+                android:id="@+id/tab_icon_weixin"
+                style="@style/tab_button_bg"
+                android:checked="true"
+                android:drawableTop="@drawable/home"
+                android:textColor="@color/tab_text" />
+
+            <RadioButton
+                android:id="@+id/tab_icon_address"
+                style="@style/tab_button_bg"
+                android:drawableTop="@drawable/sign"
+                android:textColor="@color/tab_text" />
+
+
+            <RadioButton
+                android:id="@+id/tab_icon_friend"
+                style="@style/tab_button_bg"
+                android:drawableTop="@drawable/rbutton"
+                android:textColor="@color/tab_text" />
+
+
+            <RadioButton
+                android:id="@+id/tab_icon_setting"
+                style="@style/tab_button_bg"
+                android:drawableTop="@drawable/plus"
+                android:textColor="@color/tab_text" />
+
+        </RadioGroup>
+    </LinearLayout>
+</TabHost>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hyman="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu">
+
+    <com.example.sihan.restaurantrecommendation.com.example.sihan.restaurantrecommendation.view.SlidingMenu
+        android:id="@+id/slideMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        hyman:rightPadding="100dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <include layout="@layout/left_menu" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff">
+
+                <Button
+                    android:id="@+id/menu_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="toggleMenu"
+                    android:text="Menu switch" />
+
+                <ListView
+                    android:id="@+id/special_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="60dp"
+                    android:clickable="true"
+                    android:longClickable="true" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </com.example.sihan.restaurantrecommendation.com.example.sihan.restaurantrecommendation.view.SlidingMenu>
+</RelativeLayout>
