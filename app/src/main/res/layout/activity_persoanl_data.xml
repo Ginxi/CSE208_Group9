@@ -1,102 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/et_search2"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="4"
-            android:background="@null"
-            android:gravity="center_horizontal"
-            android:hint="Persoanl Profile"
-            android:singleLine="true"
-            android:textColor="#0e0e0e"
-            android:textColorHint="#b0c6ce"
-            android:textSize="40dp" />
-
-    </LinearLayout>
-
-    <TableLayout
-        android:id="@+id/score"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="*"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical" >
 
-        >
+        <TextView
+            android:id="@+id/My_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="10.5dp"
+            android:text="Sign Up"
+            android:textSize="18sp" />
 
-        <TableRow>
+        <TextView
+            android:id="@+id/My_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="10dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="10.5dp"
+            android:text="Login"
+            android:textSize="18sp" />
 
-            <TextView />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Call Name"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/call"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="350px"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-            <TextView />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="50px">
-
-            <TextView />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone Number:"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/phoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:minWidth="500px"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-            <TextView />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="50px">
-
-            <TextView />
-
-            <Button
-                android:id="@+id/start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Get Started"
-                android:textStyle="bold"
-
-                />
-
-            <TextView />
-        </TableRow>
-
-    </TableLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="My Page"
+            android:textSize="18sp" />
+    </RelativeLayout>
 </LinearLayout>

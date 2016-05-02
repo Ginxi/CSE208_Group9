@@ -2,58 +2,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="12dp"
-        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/et_search"
+            android:layout_weight="4"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="4"
-            android:background="@null"
-            android:gravity="center_vertical"
-            android:hint="Search"
             android:imeOptions="actionSearch"
-            android:singleLine="true"
+            android:layout_marginLeft="10dp"
             android:textColor="#0e0e0e"
+            android:textSize="17sp"
+            android:singleLine="true"
+            android:hint="Search"
             android:textColorHint="#b0c6ce"
-            android:textSize="17sp" />
-
+            android:gravity="center_vertical"
+            android:background="@null"/>
         <Button
             android:id="@+id/searchField"
             android:layout_width="80px"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:background="@drawable/search" />
+            android:background="@drawable/search"
+            />
 
     </LinearLayout>
-
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="180dip"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        >
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@drawable/e" />
+            android:background="@drawable/e"
+            android:layout_height="fill_parent" />
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="35dip"
             android:layout_gravity="bottom"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:id="@+id/viewGroup"
@@ -62,48 +63,51 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="3dip"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal" >
+            </LinearLayout>
         </LinearLayout>
 
     </FrameLayout>
+
 
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        android:orientation="vertical">
 
         <TableRow android:orientation="vertical">
-
             <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/spinnerScore"
+                android:entries="@array/Score"
+                android:layout_weight="1"
+                />
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:entries="@array/Score" />
-
-            <Spinner
                 android:id="@+id/spinnerAverage"
+                android:entries="@array/Average"
+                android:layout_weight="1"
+                />
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:entries="@array/Average" />
-
-            <Spinner
                 android:id="@+id/spinnerDistance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:entries="@array/Distance"
                 android:layout_weight="1"
-                android:entries="@array/Distance" />
+                />
 
             <Spinner
-                android:id="@+id/spinnerDestination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/spinnerDestination"
+                android:entries="@array/Destination"
                 android:layout_weight="1"
-                android:entries="@array/Destination" />
+                />
             />
 
         </TableRow>
@@ -113,22 +117,25 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:orientation="horizontal"
                 android:id="@+id/linearLayout"
-                android:layout_column="0"
-                android:orientation="horizontal">
+                android:layout_column="0">
 
                 <TextView
                     android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:text="Score"
-                    android:textSize="60px" />
+                    android:textSize="60px"
+                    />
+
 
 
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:text="Restaurant"
-                    android:textSize="60px" />
+                    android:textSize="60px"
+                    />
 
             </LinearLayout>
         </TableRow>
@@ -140,9 +147,9 @@
             <ListView
                 android:id="@+id/result"
                 android:layout_below="@+id/linearLayout"
-                android:layout_column="0"
                 android:clickable="true"
-                android:longClickable="true" />
+                android:longClickable="true"
+                android:layout_column="0" />
         </TableRow>
 
     </TableLayout>

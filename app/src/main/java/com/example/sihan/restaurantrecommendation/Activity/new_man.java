@@ -69,9 +69,18 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
             @Override
             public void onClick(View v) {
                 rankFactor();
+//                Bundle mBundle = new Bundle();
+//                for(int i = 0; i < restaurantList.size(); i++) {
+//                    mBundle.putSerializable(String.valueOf(i), (Serializable) restaurantList.get(i));
+//                }
+                String str = "";
+                for (int i = 0; i < restaurantList.size(); i++)
+                {
+                    str += restaurantList.get(i).toString() + ";";
+                }
                 Intent intent = new Intent(new_man.this, new_drop.class);
-                intent.putExtra("new_man", restaurantList);
-                startActivity(intent);
+                intent.putExtra("res", str);
+               startActivity(intent);
             }
         });
         search = (EditText) findViewById(R.id.et_search1);
@@ -131,8 +140,11 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
-
-                averageSpent = Integer.parseInt(getResources().getStringArray(R.array.Average)[pos].substring(2));
+                try {
+                    averageSpent = Integer.parseInt(getResources().getStringArray(R.array.Average)[pos].substring(3, getResources().getStringArray(R.array.Average)[pos].length()));
+                } catch(NumberFormatException ex) {
+                    averageSpent = Integer.MAX_VALUE;
+                }
                 //  Toast.makeText(MannualSearch.this, sxs, Toast.LENGTH_LONG).show();
             }
 

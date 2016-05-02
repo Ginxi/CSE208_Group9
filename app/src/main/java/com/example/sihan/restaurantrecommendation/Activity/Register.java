@@ -16,20 +16,19 @@ import com.example.sihan.restaurantrecommendation.Function.User;
 import com.example.sihan.restaurantrecommendation.R;
 
 public class Register extends AppCompatActivity {
+    private EditText etid,etname;
+    private Button btn_qu,btn_sure;
     SQLiteOpenHelper helper;
-    private EditText etid, etname;
-    private Button btn_qu, btn_sure;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.sihan.restaurantrecommendation.R.layout.activity_register);
-        helper = new Sqliteopenhelper(this);
+        helper=new Sqliteopenhelper(this);
         helper.getWritableDatabase();
-        etid = (EditText) findViewById(R.id.createAccount);
-        etname = (EditText) findViewById(R.id.createPassword);
-        btn_qu = (Button) findViewById(R.id.btn_qu);
-        btn_sure = (Button) findViewById(R.id.signNewAccount);
+        etid=(EditText)findViewById(R.id.createAccount);
+        etname=(EditText)findViewById(R.id.createPassword);
+        btn_qu=(Button)findViewById(R.id.btn_qu);
+        btn_sure=(Button)findViewById(R.id.signNewAccount);
         btn_sure.setOnClickListener(new sureListener());
         btn_qu.setOnClickListener(new quListener());
 
@@ -40,21 +39,21 @@ public class Register extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            try {
-                SQLiteDatabase sdb = helper.getWritableDatabase();
-                ContentValues values = new ContentValues();
-                values.put("id", etid.getText().toString());
-                values.put("name", etname.getText().toString());
-                sdb.insert("student", null, values);
+            try{
+                SQLiteDatabase sdb=helper.getWritableDatabase();
+                ContentValues values=new ContentValues();
+                values.put("id",etid.getText().toString());
+                values.put("name",etname.getText().toString());
+                sdb.insert("student",null, values);
                 Toast.makeText(getApplicationContext(), "Sign successfully!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Register.this, User.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("name", etname.getText().toString());
+                Intent intent=new Intent(Register.this,User.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("name",etname.getText().toString());
                 intent.putExtras(bundle);
-                startActivity(intent);
-            } catch (SQLiteException e) {
-                Toast.makeText(getApplicationContext(), "Sign Failed!", Toast.LENGTH_SHORT).show();
+                startActivity(intent);;
             }
+            catch(SQLiteException e)
+            {Toast.makeText(getApplicationContext(), "Sign Failed!", Toast.LENGTH_SHORT).show();}
         }
     }
 
@@ -63,7 +62,7 @@ public class Register extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            Intent intent = new Intent(Register.this, Login.class);
+            Intent intent=new Intent(Register.this,Login.class);
             startActivity(intent);
         }
 

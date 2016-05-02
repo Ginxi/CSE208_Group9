@@ -7,12 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.sihan.restaurantrecommendation.R;
-
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import com.example.sihan.restaurantrecommendation.R;
 
 
 public class FilterAdapter extends BaseAdapter {
@@ -21,14 +20,14 @@ public class FilterAdapter extends BaseAdapter {
     private List<String> list;
     private int checkItemPosition = 0;
 
-    public FilterAdapter(Context context, List<String> list) {
-        this.context = context;
-        this.list = list;
-    }
-
     public void setCheckItem(int position) {
         checkItemPosition = position;
         notifyDataSetChanged();
+    }
+
+    public FilterAdapter(Context context, List<String> list) {
+        this.context = context;
+        this.list = list;
     }
 
     @Override

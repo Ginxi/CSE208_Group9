@@ -9,77 +9,78 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MannualResultList">
+    tools:context=".MannualResultList"
+    >
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="12dp"
-        android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:orientation="horizontal">
         <!-- 输入的搜索信息 -->
         <AutoCompleteTextView
             android:id="@+id/et_search"
+            android:layout_weight="4"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="4"
-            android:background="@null"
-            android:drawableLeft="@drawable/search"
-            android:gravity="center_vertical"
-            android:hint="搜索"
             android:imeOptions="actionSearch"
-            android:singleLine="true"
+            android:layout_marginLeft="10dp"
             android:textColor="#0e0e0e"
+            android:textSize="17sp"
+            android:singleLine="true"
+            android:hint="搜索"
             android:textColorHint="#b0c6ce"
-            android:textSize="17sp" />
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/search"
+            android:background="@null"/>
         <!-- 清空搜索文字按钮 -->
         <LinearLayout
             android:id="@+id/layout_clear_search_text"
+            android:layout_weight="0.5"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.5"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
+            android:visibility="gone"
+            android:orientation="horizontal">
             <Button
                 android:id="@+id/btn_clear_search_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|center_vertical"
-                android:background="@drawable/clear" />
+                android:background="@drawable/clear"
+                />
 
         </LinearLayout>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <LinearLayout android:layout_marginTop="80dp"
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:orientation="horizontal">
+        android:id="@+id/linearLayout">
 
         <TextView
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:text="Score"
-            android:textSize="60px" />
+            android:textSize="60px"
+            />
 
         <TextView
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="Restaurant"
-            android:textSize="60px" />
+            android:textSize="60px"
+            />
 
     </LinearLayout>
 
     <ListView
-        android:id="@+id/result"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
+        android:id="@+id/result"
         android:layout_below="@+id/linearLayout"
         android:clickable="true"
         android:longClickable="true"
@@ -87,105 +88,99 @@
         />
 
 
-    <TableLayout
+    <TableLayout android:layout_alignParentBottom="true"
         android:id="@+id/score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:stretchColumns="*"
 
         >
 
         <TableRow>
-
             <Button
-                android:id="@+id/MRest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MRest" />
-
+                android:text="MRest"
+                android:id="@+id/MRest" />
             <Button
-                android:id="@+id/SRest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SRest" />
+                android:text="SRest"
+                android:id="@+id/SRest" />
 
         </TableRow>
-
         <TableRow>
-
             <ImageButton
-                android:id="@+id/homeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/homeBtn"
+                android:background="@drawable/home"
                 android:layout_below="@+id/result"
+                android:layout_toRightOf="@+id/registerBtn"
+                android:layout_toEndOf="@+id/registerBtn"
                 android:layout_marginLeft="52dp"
                 android:layout_marginStart="52dp"
-                android:layout_toEndOf="@+id/registerBtn"
-                android:layout_toRightOf="@+id/registerBtn"
-                android:background="@drawable/home"
-                android:visibility="invisible" />
-
+                android:visibility="invisible"
+                />
             <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/searchBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/plusBtn"
-                android:layout_alignRight="@+id/plusBtn"
-                android:layout_below="@+id/homeBtn"
                 android:background="@drawable/search"
-                android:visibility="invisible" />
-
+                android:layout_below="@+id/homeBtn"
+                android:layout_alignRight="@+id/plusBtn"
+                android:layout_alignEnd="@+id/plusBtn"
+                android:visibility="invisible"/>
             <ImageButton
-                android:id="@+id/registerBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/registerBtn"
+                android:background="@drawable/sign"
                 android:layout_alignTop="@+id/hideBtn"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/sign"
-                android:visibility="invisible" />
+                android:visibility="invisible"/>
 
             <ImageButton
-                android:id="@+id/personalAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/personalAccount"
+                android:background="@drawable/rbutton"
                 android:layout_below="@+id/homeBtn"
                 android:layout_toLeftOf="@+id/homeBtn"
                 android:layout_toStartOf="@+id/homeBtn"
-                android:background="@drawable/rbutton"
-                android:visibility="invisible" />
+                android:visibility="invisible"/>
 
             <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/plusBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:background="@drawable/plus"
                 android:layout_marginBottom="43dp"
-                android:layout_toEndOf="@+id/homeBtn"
+                android:layout_alignParentBottom="true"
                 android:layout_toRightOf="@+id/homeBtn"
-                android:background="@drawable/plus" />
-
+                android:layout_toEndOf="@+id/homeBtn"
+                />
             <ImageButton
-                android:id="@+id/hideBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/plusBtn"
-                android:layout_toEndOf="@+id/plusBtn"
-                android:layout_toRightOf="@+id/plusBtn"
+                android:id="@+id/hideBtn"
                 android:background="@drawable/hide"
-                android:visibility="invisible" />
+                android:layout_alignBottom="@+id/plusBtn"
+                android:layout_toRightOf="@+id/plusBtn"
+                android:layout_toEndOf="@+id/plusBtn"
+                android:visibility="invisible"/>
         </TableRow>
 
     </TableLayout>
 
     <Button
-        android:id="@+id/BackToMannual"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:text="Back"
+        android:id="@+id/BackToMannual"
         android:layout_column="4"
-        android:text="Back" />
+        android:layout_alignParentBottom="true" />
 
 
 </RelativeLayout>

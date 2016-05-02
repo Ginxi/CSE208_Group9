@@ -36,7 +36,7 @@ public class DropDownLayout extends FrameLayout implements ViewTreeObserver.OnGl
 
     private void findChildView() {
         for (int i = 0; i < getChildCount(); i++) {
-            if (mMaskView != null && mMenuLayout != null)
+            if (mMaskView!=null&&mMenuLayout!=null)
                 break;
             View childItem = getChildAt(i);
             if (childItem instanceof MaskView) {
@@ -46,7 +46,6 @@ public class DropDownLayout extends FrameLayout implements ViewTreeObserver.OnGl
             }
         }
     }
-
     @Override
     public void onGlobalLayout() {
         findChildView();

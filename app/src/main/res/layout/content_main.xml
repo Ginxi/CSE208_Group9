@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bb"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bb"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.sihan.restaurantrecommendation.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <Button
-        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/login"
+        android:layout_gravity="center_vertical"
+        android:textAllCaps="false"
+        android:background="@drawable/li"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_vertical"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/li"
-        android:textAllCaps="false" />
+        android:layout_marginBottom="50dp" />
 
 </RelativeLayout>

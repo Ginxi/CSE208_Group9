@@ -19,7 +19,7 @@ import sunger.net.org.dropmenu.new_drop;
  */
 public class FragmentPrice extends Fragment {
 
-    private String price[] = {"Ascending", "Descending"};
+    private String price[] = {"Descending","Ascending"};
     private ListView listView;
     private FilterAdapter adapter;
     private new_drop newdrop;
@@ -27,7 +27,7 @@ public class FragmentPrice extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        newdrop = (new_drop) getActivity();
+        newdrop =(new_drop)getActivity();
     }
 
     @Nullable
@@ -41,7 +41,7 @@ public class FragmentPrice extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listView.setDividerHeight(0);
-        adapter = new FilterAdapter(getActivity(), Arrays.asList(price));
+        adapter = new FilterAdapter(getActivity(), Arrays.asList( price));
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -6,6 +6,7 @@
 package com.example.sihan.restaurantrecommendation.Function;
 
 /**
+ *
  * @author Ginxi
  */
 public class Week9_java {
@@ -30,8 +31,8 @@ public class Week9_java {
 //        for (Restaurant current : rs) {
 //            System.out.println(current);
 //        }
-
-    //  s.testLoadUsers();
-    //   }
+     
+        //  s.testLoadUsers();
+ //   }
 
 }

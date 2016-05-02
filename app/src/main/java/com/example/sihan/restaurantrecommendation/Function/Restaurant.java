@@ -3,11 +3,10 @@ package com.example.sihan.restaurantrecommendation.Function;
 
 /**
  * Write a description of Restaurant here.
- *
+ * 
+ * @di.yao_1301853 (your name) 
  * @version (a version number or a date)
- * @di.yao_1301853 (your name)
  */
-
 public class Restaurant {
     private String id;
     private String title;
@@ -19,10 +18,10 @@ public class Restaurant {
     private String phoneNumber;
     private String address;
     private int distance;
-
-    public Restaurant(String anID, String aTitle, int anAverageSpent, String aCategories,
-                      double anEnvironmentScore, double aServiceScore, double aFlavorScore, String
-                              aPhoneNumber, String anAddress, int aDistance) {
+    
+    public Restaurant(String anID, String aTitle, int anAverageSpent, String aCategories, 
+                      double anEnvironmentScore, double aServiceScore, double aFlavorScore, String 
+                      aPhoneNumber, String anAddress, int aDistance){
         id = anID.trim();
         title = aTitle.trim();
         averageSpent = anAverageSpent;
@@ -34,51 +33,53 @@ public class Restaurant {
         address = anAddress.trim();
         distance = aDistance;
     }
-
-    public String getID() {
+    
+    public String getID(){
         return id;
     }
-
-    public String getTitle() {
+    
+    public String getTitle(){
         return title;
     }
-
-    public int getAverageSpent() {
+    
+    public int getAverageSpent(){
         return averageSpent;
     }
-
-    public String getCategories() {
+    
+    public String getCategories(){
         return categories;
     }
-
-    public double getEnvironmentScore() {
+    
+    public double getEnvironmentScore(){
         return environmentScore;
     }
-
-    public double getServiceScore() {
+    
+    public double getServiceScore(){
         return flavorScore;
     }
 
-    public double getFlavorScore() {
+    public double getFlavorScore(){
         return flavorScore;
     }
-
-    public String getPhoneNumber() {
+    
+    public String getPhoneNumber(){
         return phoneNumber;
     }
-
-    public String getAddress() {
+    
+    public String getAddress(){
         return address;
     }
-
-    public int getDistance() {
+    
+    public int getDistance(){
         return distance;
     }
 
-    public String toString() {
+    public String toString () {
         String result = "Restaurant [id=" + id + ", title=" + title + ", average spent=" + averageSpent;
-        result += ", categories= " + categories + ", environment score=" + environmentScore + ", service core=" + serviceScore;
-        result += ", flavor score=" + flavorScore + ", distance=" + distance + "]";
-        return result;
+        result += ", categories= " + categories +", environment score="+ environmentScore + ", service core="+serviceScore;
+        result += ", flavor score="+ flavorScore +", phone number=" + phoneNumber;
+        result +=", address="+ address + ", distance=" + distance +"]";
+        return  result;
     }
+
 }

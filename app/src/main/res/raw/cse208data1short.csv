@@ -1,10 +1,10 @@
 id,title,averageSpent,categories,environmentScore,serviceScore,flavorScore,phoneNumber,address,distance
-1,泰好吃年糕火锅（独墅湖店）—TaiHaoChi Rice Cake Chaffy dish (Dushu Lake branch),48,South Korean dish,9,9.1,9, 62799747, 独墅湖高教区文星广场85度c旁边(文星广场85度c)--Dushu Lake Higher education zone Wenxing square (next to 85°c bekery),486
+1,泰好吃年糕火锅（独墅湖店）--TaiHaoChi Rice Cake Chaffy dish (Dushu Lake branch),48,South Korean dish,9,9.1,9, 62799747, 独墅湖高教区文星广场85度c旁边(文星广场85度c)--Dushu Lake Higher education zone Wenxing square (next to 85°c bekery),486
 2,高丽鸡韩国时尚料理（文星店）--Chicken Korea Korean food (Wenxing branch),12,South Korean dish,7,6.9,7.6,15190565696,林泉街独墅湖文星广场旁(近文星广场邮政所)--Linquan Road Dushu Lake Wenxing square (next to Post Office),758
 3,喜来稀肉（邻瑞店）--XiLaiXiRou(Link city branch),85,South Korean dish,9.1,9.1,9.1,62769907,西华林街88号邻瑞广场一楼西广场山姆会员超市出入口 --XiHuaLinJie Number88 The west of Link city (at the entrance of Sam Supermarket),758
 4,全州拌饭（邻瑞广场）--Quanzhou Bibimbap (Link city),24,South Korean dish,8.6,8.5,8.5,62766597,苏州工业园区邻瑞广场B109-110--Suzhou Industrial zone Link city B109-110,3700
 5,利好海鲜酒楼 --Lihao Seafood Restaurant,204,Cantonese dish,7.7,7.6,7.7,62381777/62381888,独墅湖科教创新区月亮湾街8号(近独墅湖体育馆)--Dushu Lake Science and education innovation zone moon bay street No.8 (next to Dushu Lake gymnasium),1800
-6,量子制造·馋源 —-Liangzizhizao.Chanyuan,151,Cantonese dish,9.2,9.1,9.1,67678979,松涛街1088号斜塘老街四期47栋(靠近津梁路南端末)--Songtao Street No.1088 Xietang street 47 building (next to the end of the the southern tip of jinliang street),3700
+6,量子制造·馋源 --Liangzizhizao.Chanyuan,151,Cantonese dish,9.2,9.1,9.1,67678979,松涛街1088号斜塘老街四期47栋(靠近津梁路南端末)--Songtao Street No.1088 Xietang street 47 building (next to the end of the the southern tip of jinliang street),3700
 7,润记（邻瑞广场）--Runji (Link city),55,Cantonese dish,8.3,7.9,7.9,62827988,金鸡湖大道与西华林街交界处邻瑞广场B1楼 --Link city B1 building at the cross of the Jinji Lake road and the Xihualin road,3700
 8,有家酸菜鱼 --Youjia Pickled fish,57,Sichuan dish,9.1,9.1,9.2,4008168517,独墅湖高教区文星广场--Dushu Lake Higher education zone Wenxing square,100
 9,陆鼎记幸福餐厅 --Ludingji Happyness restaurant,44,Sichuan dish,7.7,7.7,7.6,13862502566,独墅湖高教区仁爱路文星广场A2号(近移动营业厅)--Dushu Lake Higher education zone Renai road Wenxing square No. A2 (next to Chan Mobile Service Hall),100
@@ -23,4 +23,4 @@ id,title,averageSpent,categories,environmentScore,serviceScore,flavorScore,phone
 22,秋季语寿司（文星店）--QiuJiYuShouSi(Wenxing branch),11,Japaness dish,8.4,8.9,9,15262588028,文星广场B2座（近老娘舅）--WenXing Square B2 Building (Next to LaoNiangJiu),568
 23,这美咖啡 --ZeMo Café,54,Western dish,9.1,8.8,9.1,89573182,仁爱路105号（工商银行）--Renai Road Number 105 (Industral and Commerical Bank Of China),322
 24,小西厨西餐（文星广场店）--XiaoXiChuXiCan(WenXing branch),15,Western dish,7.1,7.3,7.4,18761937694,仁爱路199号文星广场2楼 --Renai Road Number 199 WenXing Square second floor,519
-25,水天堂西餐厅（邻瑞广场店）--ShuiTianTangXiCanTing(Link city branch),66,Western dish,9.2,9.1,9.1,67777737,西华林街邻瑞广场403号 --XiHuaLinJie LinRui Square Number 403,34000
+25,水天堂西餐厅（邻瑞广场店）--ShuiTianTangXiCanTing(Link city branch),66,Western dish,9.2,9.1,9.1,67777737,西华林街邻瑞广场403号 --XiHuaLinJie LinRui Square Number 403,3400

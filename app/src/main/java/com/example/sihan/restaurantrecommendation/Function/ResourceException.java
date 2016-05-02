@@ -6,6 +6,7 @@
 package com.example.sihan.restaurantrecommendation.Function;
 
 /**
+ *
  * @author Ginxi
  */
 public class ResourceException extends RuntimeException {

@@ -30,10 +30,10 @@ public class MaskView extends View {
 
     public void show() {
         setVisibility(VISIBLE);
-    }
+     }
 
     public void dissMiss() {
         setVisibility(GONE);
-    }
+     }
 
 }

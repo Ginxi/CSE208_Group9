@@ -1,18 +1,17 @@
 package sunger.net.org.dropmenu;
 
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.sihan.restaurantrecommendation.Function.Restaurant;
+import com.example.sihan.restaurantrecommendation.Function.SortRestaurant;
 import com.example.sihan.restaurantrecommendation.R;
 
 import org.net.sunger.widget.DropDownLayout;
@@ -21,6 +20,7 @@ import org.net.sunger.widget.MenuLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import sunger.net.org.dropmenu.adapter.ShopAdapter;
 import sunger.net.org.dropmenu.fragment.FragmentPrice;
 import sunger.net.org.dropmenu.fragment.FragmentRange;
 import sunger.net.org.dropmenu.fragment.FragmentScore;
@@ -42,31 +42,45 @@ public class new_drop extends AppCompatActivity {
     private MenuLayout menuLayout;
     private ShopAdapter shopAdapter;
     private String inputString;
-    private String[] restaurantList;
+    private String[] restaurant;
+    private ArrayList<Restaurant> restaurantList;
+    private  RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        Bundle mBundle = new Bundle();
-        //mBundle.putSerializable(student_key, inputString);
-        inputString = intent.getStringExtra("new_man");
-        if (inputString != null) {
-            restaurantList = inputString.split(";");
-            //  Toast.makeText(new_drop.this, restaurantList[0], Toast.LENGTH_LONG).show();
+        inputString = intent.getStringExtra("res");
+        restaurantList = new ArrayList<Restaurant>();
+        if (inputString.endsWith(";")) {
+            restaurant = inputString.split(";");
+            int count = 0;
+            for (String temp: restaurant)
+            {
+                String anID = temp.split(",")[0].split("=")[1];
+                String aTitle = temp.split(",")[1].split("=")[1];
+                int anAverageSpent = Integer.parseInt(temp.split(",")[2].split("=")[1]);
+                String aCategories = temp.split(",")[3].split("=")[1];
+                double anEnvironmentScore = Double.parseDouble(temp.split(",")[4].split("=")[1]);
+                double aServiceScore = Double.parseDouble(temp.split(",")[5].split("=")[1]);
+                double aFlavorScore = Double.parseDouble(temp.split(",")[6].split("=")[1]);
+                String aPhoneNumber = temp.split(",")[7].split("=")[1];
+                String anAddress = temp.split(",")[8].split("=")[1];
+                int aDistance = Integer.parseInt(temp.split(",")[9].split("=")[1].split("]")[0]);
+                restaurantList.add(new Restaurant(anID,aTitle,anAverageSpent,aCategories,anEnvironmentScore,aServiceScore,aFlavorScore,aPhoneNumber,anAddress,aDistance));
+            }
         } else {
-            restaurantList = new String[]{"Restaurant 1"};
+            restaurant = new String[]{"Restaurant"};
         }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_drop_ac);
+   //     Toast.makeText(new_drop.this,String.valueOf(), Toast.LENGTH_LONG).show();
         menuLayout = (MenuLayout) findViewById(R.id.menuLayout);
         dropDownLayout = (DropDownLayout) findViewById(R.id.dropdown);
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new FragmentScore());
         fragments.add(new FragmentPrice());
         fragments.add(new FragmentRange());
-//         menuLayout.setAnimationIn(R.anim.an);
-//         menuLayout.setAnimationOut(R.anim.out);
         menuLayout.setFragmentManager(getSupportFragmentManager());
         menuLayout.bindFragments(fragments);
         tabs = (CommonTabLayout) findViewById(R.id.tabs);
@@ -89,14 +103,30 @@ public class new_drop extends AppCompatActivity {
             }
         });
 
-        shopAdapter = new ShopAdapter(restaurantList);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        shopAdapter = new ShopAdapter(restaurant);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        DividerLine dividerLine = new DividerLine(DividerLine.VERTICAL);
+        dividerLine.setSize(10);
+        dividerLine.setColor(0xFFDDDDDD);
+        recyclerView.addItemDecoration(dividerLine);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(shopAdapter);
+        shopAdapter.setOnItemClickListener(new ShopAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view, String data) {
+                Intent intent = new Intent(new_drop.this, com.example.sihan.restaurantrecommendation.Activity.Restaurant.class);
+                intent.putExtra("data", data);
+            startActivity(intent);
+            }
+        });
     }
 
     private void updateTabData() {
         mTabEntities.clear();
+    //    recyclerView.removeAllViews();
+      //  recyclerView.setAdapter(shopAdapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setAdapter(shopAdapter);
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
@@ -117,59 +147,82 @@ public class new_drop extends AppCompatActivity {
                 mTitles[2] = tag;
                 break;
         }
+//        ArrayList<Restaurant> temp = sortRestaurant(tag);
+        sortRestaurant(tag);
+        for (int i = 0; i < restaurantList.size(); i++){
+            restaurant[i] = restaurantList.get(i).toString();
+        }
+        recyclerView.setAdapter(new ShopAdapter(restaurant));
+//        String str = "";
+//        for (int i = 0; i <restaurantList.size(); i++)
+//            str += restaurantList.get(i).toString() + ";";
+//        Toast.makeText(new_drop.this, str, Toast.LENGTH_LONG).show();
         updateTabData();
     }
 
-    public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHoler> {
-        //  private LayoutInflater mInflater;
-        private String[] text;
-        private int[] img = {R.drawable.a};
-
-        public ShopAdapter(Restaurant[] restaurant) {
-            text = restaurant;
+    public class DividerLine extends RecyclerView.ItemDecoration {
+        public static final int HORIZONTAL = LinearLayoutManager.HORIZONTAL;
+        public static final int VERTICAL = LinearLayoutManager.VERTICAL;
+        private Paint paint;
+        private int orientation;
+        private int color;
+        private int size;
+        public DividerLine() {
+            this(VERTICAL);
         }
+        public DividerLine(int orientation) {
+            this.orientation = orientation;
 
+            paint = new Paint();
+        }
         @Override
-        public ShopViewHoler onCreateViewHolder(ViewGroup parent, int viewType) {
-            ShopViewHoler svh = new ShopViewHoler(LayoutInflater.from(new_drop.this).inflate(R.layout.list_item, parent, false));
-            //  ImageView imv = ImageView.p arent.getResources()
-            //   View view = mInflater.inflate(R.layout.new_drop_con,
-            //          parent, false);
-            //   ShopViewHoler viewHolder = new ShopViewHoler(view);
-            //   viewHolder.mImage = (ImageView) view.findViewById(R.);
-            //   ImageView tv = (ImageView) parent.getChildAt(0);
-            //  tv.setHeight(300);
-            return svh;
-        }
-
-        @Override
-        public void onBindViewHolder(ShopViewHoler holder, int position) {
-            //  holder.mTextView.setText(text[position]);
-            holder.mTextView.setText(text[position]);
-            holder.mImageView.setImageResource(img[0]);
-            // holder.mTextView.setImageResource(R.drawable.a);
-            //  holder.mImageView.setImageResource(img[position]);
-        }
-
-
-        @Override
-        public int getItemCount() {
-            return text.length;
-        }
-
-        public class ShopViewHoler extends RecyclerView.ViewHolder {
-
-            //     public final TextView mTextView;
-            public final ImageView mImageView;
-            public final TextView mTextView;
-
-            public ShopViewHoler(View itemView) {
-                super(itemView);
-//                mTextView=(TextView)itemView;
-                mTextView = (TextView) itemView.findViewById(R.id.id_item_text);
-                mImageView = (ImageView) itemView.findViewById(R.id.id_item_image);
+        public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
+            super.onDrawOver(c, parent, state);
+            if (orientation == VERTICAL) {
+                drawHorizontal(c, parent);
+            } else {
+                drawVertical(c, parent);
             }
-
         }
+        public void setColor(int color) {
+            this.color = color;
+            paint.setColor(color);
+        }
+        public void setSize(int size) {
+            this.size = size;
+        }
+        protected void drawVertical(Canvas c, RecyclerView parent) {
+            final int top = parent.getPaddingTop();
+            final int bottom = parent.getHeight() - parent.getPaddingBottom();
+
+            final int childCount = parent.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                final View child = parent.getChildAt(i);
+                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+                final int left = child.getRight() + params.rightMargin;
+                final int right = left + size;
+
+                c.drawRect(left, top, right, bottom, paint);
+            }
+        }
+        protected void drawHorizontal(Canvas c, RecyclerView parent) {
+            final int left = parent.getPaddingLeft();
+            final int right = parent.getWidth() - parent.getPaddingRight();
+
+            final int childCount = parent.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                final View child = parent.getChildAt(i);
+                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+                final int top = child.getBottom() + params.bottomMargin;
+                final int bottom = top + size;
+                c.drawRect(left, top, right, bottom, paint);
+            }
+        }
+    }
+    private void sortRestaurant(String tag) {
+        SortRestaurant sr = new SortRestaurant();
+//        ArrayList<Restaurant> res = sr.sortRest(tag, restaurantList);
+        sr.sortRest(tag, restaurantList);
+        //return res;
     }
 }

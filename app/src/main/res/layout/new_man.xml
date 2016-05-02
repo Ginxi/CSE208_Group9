@@ -1,74 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent">
+    <android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <io.codetail.widget.RevealFrameLayout
             android:id="@+id/conteiner_frame"
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:id="@+id/content_overlay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" />
-
+                android:orientation="vertical"/>
             <LinearLayout
                 android:id="@+id/content_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" />
+                android:orientation="vertical"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/man_toolbar"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize" />
-
+                android:layout_width="match_parent"
+                android:minHeight="?attr/actionBarSize"
+                android:background="@color/headbg"/>
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="55dp"
-                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
                 android:layout_marginTop="10dp"
-                android:background="#FFFFFF"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="5dp"
+                android:background="#1197a6"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/et_search1"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="4"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="Search"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
                     android:imeOptions="actionSearch"
-                    android:singleLine="true"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#0e0e0e"
+                    android:textSize="17sp"
+                    android:singleLine="true"
+                    android:background="@drawable/main_search_search_shape"
+                    android:hint="   Search"
                     android:textColorHint="#b0c6ce"
-                    android:textSize="17sp" />
-
-                <Button
+                    android:gravity="center_vertical"
+                    />
+                <ImageButton
                     android:id="@+id/searchField"
-                    android:layout_width="80px"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:background="@drawable/search" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/icon_search"
+                    android:layout_marginRight="5dp"
+                    />
 
             </LinearLayout>
         </io.codetail.widget.RevealFrameLayout>
 
         <LinearLayout
-            android:id="@+id/Paihangbang_item"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
@@ -80,38 +82,42 @@
                 android:id="@+id/Paihangbang_top2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                >
 
                 <Spinner
-                    android:id="@+id/spinnerAverage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/spinnerAverage"
+                    android:entries="@array/Average"
                     android:layout_weight="1"
-                    android:entries="@array/Average" />
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/Paihangbang_top3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                >
 
                 <Spinner
-                    android:id="@+id/spinnerDistance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/spinnerDistance"
+                    android:entries="@array/Distance"
                     android:layout_weight="1"
-                    android:entries="@array/Distance" />
+                    />
 
             </LinearLayout>
 
@@ -119,37 +125,40 @@
                 android:id="@+id/Paihangbang_top4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF">
+                android:background="#FFFFFF"
+                >
 
                 <Spinner
-                    android:id="@+id/spinnerDestination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/spinnerDestination"
+                    android:entries="@array/Destination"
                     android:layout_weight="1"
-                    android:entries="@array/Destination" />
+                    />
             </LinearLayout>
         </LinearLayout>
 
+
         <ScrollView
             android:id="@+id/scrollView"
+            android:scrollbarThumbVertical="@android:color/transparent"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:layout_gravity="start|bottom"
-            android:scrollbarThumbVertical="@android:color/transparent">
+            android:layout_gravity="start|bottom">
 
             <LinearLayout
                 android:id="@+id/left_drawer"
+                android:orientation="vertical"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0dp"
-                android:orientation="vertical">
+                android:background="@android:color/transparent">
                 <!-- Layout of Drawer -->
             </LinearLayout>
         </ScrollView>

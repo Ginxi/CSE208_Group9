@@ -18,15 +18,16 @@ import sunger.net.org.dropmenu.new_drop;
  * Created by sunger on 16/4/16.
  */
 public class FragmentRange extends Fragment {
+    private String range[] = {"Nearest", "Furthest"};
     ListView listView;
     FilterAdapter adapter;
-    private String range[] = {"Nearest", "Furthest"};
+
     private new_drop newdrop;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        newdrop = (new_drop) getActivity();
+        newdrop =(new_drop)getActivity();
     }
 
     @Nullable

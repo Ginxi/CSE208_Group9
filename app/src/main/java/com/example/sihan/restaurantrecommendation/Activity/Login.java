@@ -15,9 +15,9 @@ import android.widget.Toast;
 import com.example.sihan.restaurantrecommendation.R;
 
 public class Login extends AppCompatActivity {
-    SQLiteOpenHelper helper;
     private EditText et_id, et_name;
     private Button btn_test, btn_local;
+    SQLiteOpenHelper helper;
     private String _id;
     private String _name;
 
@@ -45,33 +45,6 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void sureuser(String userid, String username) {
-        //3,数据库的操作，查询
-        SQLiteDatabase sdb = helper.getReadableDatabase();
-        try {
-
-            String sql = "select * from student where id=? and name=?";
-            // 实现遍历id和name
-            Cursor cursor = sdb.rawQuery(sql, new String[]{_id, _name});
-            if (cursor.getCount() > 0) {
-                Intent intent = new Intent(Login.this, MainMenu.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("name", _name);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            } else {
-                Toast.makeText(getApplicationContext(), "Login failed",
-                        Toast.LENGTH_SHORT).show();
-            }
-            cursor.close();
-            sdb.close();
-        } catch (SQLiteException e) {
-            Toast.makeText(getApplicationContext(), "Please sign up!",
-                    Toast.LENGTH_SHORT).show();
-        }
-    }
-    //登陆按钮
-
     class testListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
@@ -81,6 +54,7 @@ public class Login extends AppCompatActivity {
         }
 
     }
+    //登陆按钮
 
     class localListener implements View.OnClickListener {
 
@@ -97,6 +71,32 @@ public class Login extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void sureuser(String userid, String username) {
+        //3,数据库的操作，查询
+        SQLiteDatabase sdb = helper.getReadableDatabase();
+        try {
+
+            String sql = "select * from student where id=? and name=?";
+            // 实现遍历id和name
+            Cursor cursor = sdb.rawQuery(sql, new String[] { _id, _name });
+            if (cursor.getCount() > 0) {
+                Intent intent = new Intent(Login.this, MainMenu.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name", _name);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            } else {
+                Toast.makeText(getApplicationContext(), "Login failed",
+                        Toast.LENGTH_SHORT).show();
+            }
+            cursor.close();
+            sdb.close();
+        } catch (SQLiteException e) {
+            Toast.makeText(getApplicationContext(), "Please sign up!",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

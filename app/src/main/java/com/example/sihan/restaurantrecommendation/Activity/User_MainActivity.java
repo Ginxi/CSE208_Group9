@@ -1,5 +1,6 @@
 package com.example.sihan.restaurantrecommendation.Activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -26,7 +27,7 @@ import com.yalantis.contextmenu.lib.interfaces.OnMenuItemLongClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User_MainActivity extends AppCompatActivity implements OnMenuItemClickListener, OnMenuItemLongClickListener {
+public class User_MainActivity extends AppCompatActivity implements OnMenuItemClickListener, OnMenuItemLongClickListener{
 
     private FragmentManager fragmentManager;
     private ContextMenuDialogFragment mMenuDialogFragment;
@@ -38,7 +39,7 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
         fragmentManager = getSupportFragmentManager();
         initToolbar();
         initMenuFragment();
-        addFragment(new User_MainFragment(), true, R.id.container);
+         addFragment(new User_MainFragment(), true, R.id.containerUser);
     }
 
     private void initMenuFragment() {
@@ -73,27 +74,31 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
         MenuObject close = new MenuObject();
         close.setResource(R.drawable.user_icn_close);
 
-        MenuObject send = new MenuObject("Send message");
-        send.setResource(R.drawable.user_icn_1);
+       // MenuObject send = new MenuObject("Comment Restaurant");
+      //  send.setResource(R.drawable.user_icn_1);
 
-        MenuObject like = new MenuObject("Like profile");
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.user_icn_2);
-        like.setBitmap(b);
 
-        MenuObject addFr = new MenuObject("Add to friends");
+      //  MenuObject like = new MenuObject("Like profile");
+        //Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.user_icn_2);
+        //like.setBitmap(b);
+
+
+        MenuObject addFr = new MenuObject("Edit Personal Profile");
         BitmapDrawable bd = new BitmapDrawable(getResources(),
                 BitmapFactory.decodeResource(getResources(), R.drawable.user_icn_3));
         addFr.setDrawable(bd);
 
-        MenuObject addFav = new MenuObject("Add to favorites");
+
+        MenuObject addFav = new MenuObject("Favourite Restaurant");
         addFav.setResource(R.drawable.user_icn_4);
 
-        MenuObject block = new MenuObject("Block user");
+
+        MenuObject block = new MenuObject("Create new account");
         block.setResource(R.drawable.user_icn_5);
 
         menuObjects.add(close);
-        menuObjects.add(send);
-        menuObjects.add(like);
+       // menuObjects.add(send);
+        //menuObjects.add(like);
         menuObjects.add(addFr);
         menuObjects.add(addFav);
         menuObjects.add(block);
@@ -114,7 +119,7 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
                 onBackPressed();
             }
         });
-        mToolBarTextView.setText("Samantha");
+        mToolBarTextView.setText("My Page");
     }
 
     protected void addFragment(Fragment fragment, boolean addToBackStack, int containerId) {
@@ -154,18 +159,44 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
     public void onBackPressed() {
         if (mMenuDialogFragment != null && mMenuDialogFragment.isAdded()) {
             mMenuDialogFragment.dismiss();
-        } else {
+        } else{
             finish();
         }
     }
 
     @Override
     public void onMenuItemClick(View clickedView, int position) {
-        Toast.makeText(this, "Clicked on position: " + position, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "Clicked on position: " + position, Toast.LENGTH_SHORT).show();
+        switch(position) {
+            case 1:
+                startActivity(new Intent(User_MainActivity.this, editPersonalProfile.class));
+                break;
+            case 2:
+                startActivity(new Intent(User_MainActivity.this, favouriteList.class));
+                break;
+            case 3:
+                startActivity(new Intent(User_MainActivity.this, Restaurant.class));
+                break;
+        }
+
     }
 
     @Override
     public void onMenuItemLongClick(View clickedView, int position) {
-        Toast.makeText(this, "Long clicked on position: " + position, Toast.LENGTH_SHORT).show();
+
+       // Toast.makeText(this, "Long clicked on position: " + position, Toast.LENGTH_SHORT).show();
+        switch(position) {
+            case 1:
+                startActivity(new Intent(User_MainActivity.this, editPersonalProfile.class));
+                break;
+            case 2:
+                startActivity(new Intent(User_MainActivity.this, favouriteList.class));
+                break;
+            case 3:
+                startActivity(new Intent(User_MainActivity.this, Restaurant.class));
+                break;
+        }
+
+
     }
 }

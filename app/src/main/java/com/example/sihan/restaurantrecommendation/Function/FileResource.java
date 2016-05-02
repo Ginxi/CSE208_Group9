@@ -20,6 +20,7 @@ import java.io.Reader;
 import java.io.StringReader;
 
 /**
+ *
  * @author Ginxi
  */
 class FileResource {
@@ -74,7 +75,7 @@ class FileResource {
     private void initRead(String fname, InputStream is) {
         try {
             myPath = fname;
-            //  InputStream is = getClass().getClassLoader().getResourceAsStream(fname);
+          //  InputStream is = getClass().getClassLoader().getResourceAsStream(fname);
             if (is == null) {
                 is = new FileInputStream(fname);
             }

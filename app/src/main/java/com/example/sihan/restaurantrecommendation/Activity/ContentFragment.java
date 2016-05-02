@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.example.sihan.restaurantrecommendation.R;
-
 import yalantis.com.sidemenu.interfaces.ScreenShotable;
 
 /**
@@ -26,9 +24,10 @@ public class ContentFragment extends Fragment implements ScreenShotable {
     public static final String SHOP = "Shop";
     public static final String PARTY = "Party";
     public static final String MOVIE = "Movie";
+
+    private View containerView;
     protected ImageView mImageView;
     protected int res;
-    private View containerView;
     private Bitmap bitmap;
 
     public static ContentFragment newInstance(int resId) {

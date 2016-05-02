@@ -27,14 +27,14 @@ public class FragmentScore extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        newdrop = (new_drop) getActivity();
+        newdrop =(new_drop)getActivity();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         listView = new ListView(getActivity());
-        return listView;
+          return listView;
     }
 
     @Override

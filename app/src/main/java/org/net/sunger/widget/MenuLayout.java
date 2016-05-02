@@ -81,6 +81,7 @@ public class MenuLayout extends RelativeLayout {
     }
 
 
+
     public void show() {
         if (animationIn == null) {
             animationIn = AnimationUtils.loadAnimation(getContext(), R.anim.menu_in);
@@ -123,6 +124,7 @@ public class MenuLayout extends RelativeLayout {
     public void setAnimationOut(int animationOutResId) {
         this.animationOut = AnimationUtils.loadAnimation(getContext(), animationOutResId);
     }
+
 
     public boolean isShow() {
         return getVisibility() == VISIBLE;

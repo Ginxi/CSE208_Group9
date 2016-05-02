@@ -6,7 +6,6 @@ package com.example.sihan.restaurantrecommendation.Function;
  * @di.yao_1301853 (your name)
  * @version (a version number or a date)
  */
-
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
@@ -41,42 +40,74 @@ public class FirstRatings {
 
     public boolean containWantedWords(Restaurant input, String targetWords) {
         String title = input.getTitle();
-        return title.indexOf(targetWords) != -1;
+        if (title.indexOf(targetWords) == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public boolean containWantedPlace(Restaurant input, String targetPlace) {
         String address = input.getAddress();
-        return address.indexOf(targetPlace) != -1;
+        if (address.indexOf(targetPlace) == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public boolean containWantedEnvironScore(Restaurant input, double targetScore) {
         double environScore = input.getEnvironmentScore();
-        return environScore >= targetScore;
+        if (environScore >= targetScore) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean containWantedServiceScore(Restaurant input, double targetScore) {
         double serviceScore = input.getServiceScore();
-        return serviceScore >= targetScore;
+        if (serviceScore >= targetScore) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean containWantedFlavorScore(Restaurant input, double targetScore) {
         double flavorScore = input.getFlavorScore();
-        return flavorScore >= targetScore;
+        if (flavorScore >= targetScore) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean containWantedCategories(Restaurant input, String targetCategories) {
         String category = input.getCategories();
-        return category.indexOf(targetCategories) != -1;
+        if (category.indexOf(targetCategories) == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public boolean cotainWantedDistances(Restaurant input, int targetDistances) {
         int distances = input.getDistance();
-        return distances <= targetDistances;
+        if (distances <= targetDistances) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean containWantedAveraegSpent(Restaurant input, int targetScore) {
         int averageSpent = input.getAverageSpent();
-        return averageSpent <= targetScore;
+        if (averageSpent <= targetScore) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public HashMap<String, Integer> phoneNumberMap(ArrayList<Restaurant> input) {
@@ -103,7 +134,7 @@ public class FirstRatings {
 // changed func
 
     public ArrayList<Restaurant> wantedRestaurants(String word, int averageSpent, String categories,
-                                                   String place, int distances, InputStream is) {
+             String place, int distances, InputStream is) {
         String filename = "raw/cse208data1short.csv";
         ArrayList<Restaurant> output = loadRestaurants(filename, is);
         System.out.println("The number of restaurant in " + filename + ": " + output.size());
@@ -111,7 +142,7 @@ public class FirstRatings {
         for (Restaurant current : output) {
             if (containWantedCategories(current, categories) && cotainWantedDistances(current, distances) && containWantedWords(current, word)
                     && containWantedPlace(current, place) && containWantedAveraegSpent(current, averageSpent)
-                    ) {
+                ) {
                 wanted.add(current);
             }
         }

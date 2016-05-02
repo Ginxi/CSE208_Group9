@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <ImageView
         android:id="@+id/id_item_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="5dp"
         android:scaleType="centerCrop" />
@@ -17,15 +18,15 @@
         android:id="@+id/id_item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/id_item_image"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/id_item_image"
-        android:layout_toEndOf="@+id/id_item_image"
-        android:layout_toRightOf="@+id/id_item_image"
         android:background="#eeeeee"
-        android:text="Restaurant"
         android:textColor="#ff0000"
-        android:textSize="12dp" />
+        android:text="Restaurant"
+        android:textSize="12dp"
+        android:layout_alignTop="@+id/id_item_image"
+        android:layout_alignBottom="@+id/id_item_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/id_item_image"
+        android:layout_toEndOf="@+id/id_item_image" />
 
 </RelativeLayout>  

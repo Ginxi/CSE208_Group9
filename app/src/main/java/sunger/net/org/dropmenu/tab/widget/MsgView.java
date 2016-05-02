@@ -12,9 +12,7 @@ import android.widget.TextView;
 import com.example.sihan.restaurantrecommendation.R;
 
 
-/**
- * 用于需要圆角矩形框背景的TextView的情况,减少直接使用TextView时引入的shape资源文件
- */
+/** 用于需要圆角矩形框背景的TextView的情况,减少直接使用TextView时引入的shape资源文件 */
 public class MsgView extends TextView {
     private Context context;
     private GradientDrawable gd_background = new GradientDrawable();
@@ -73,6 +71,27 @@ public class MsgView extends TextView {
         }
     }
 
+
+    public void setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        setBgSelector();
+    }
+
+    public void setCornerRadius(int cornerRadius) {
+        this.cornerRadius = dp2px(cornerRadius);
+        setBgSelector();
+    }
+
+    public void setStrokeWidth(int strokeWidth) {
+        this.strokeWidth = dp2px(strokeWidth);
+        setBgSelector();
+    }
+
+    public void setStrokeColor(int strokeColor) {
+        this.strokeColor = strokeColor;
+        setBgSelector();
+    }
+
     public void setIsRadiusHalfHeight(boolean isRadiusHalfHeight) {
         this.isRadiusHalfHeight = isRadiusHalfHeight;
         setBgSelector();
@@ -87,36 +106,16 @@ public class MsgView extends TextView {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
-        setBgSelector();
-    }
-
     public int getCornerRadius() {
         return cornerRadius;
-    }
-
-    public void setCornerRadius(int cornerRadius) {
-        this.cornerRadius = dp2px(cornerRadius);
-        setBgSelector();
     }
 
     public int getStrokeWidth() {
         return strokeWidth;
     }
 
-    public void setStrokeWidth(int strokeWidth) {
-        this.strokeWidth = dp2px(strokeWidth);
-        setBgSelector();
-    }
-
     public int getStrokeColor() {
         return strokeColor;
-    }
-
-    public void setStrokeColor(int strokeColor) {
-        this.strokeColor = strokeColor;
-        setBgSelector();
     }
 
     public boolean isRadiusHalfHeight() {

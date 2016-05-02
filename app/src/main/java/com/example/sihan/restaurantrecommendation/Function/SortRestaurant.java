@@ -2,52 +2,85 @@ package com.example.sihan.restaurantrecommendation.Function;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by Ginxi on 2016/4/20.
  */
 public class SortRestaurant {
-    private ArrayList<Restaurant> rList;
 
-    public SortRestaurant(ArrayList<Restaurant> r) {
-        rList = r;
-    }
-
-    public void sortRest(String str) {
+    public void sortRest(String str,ArrayList<Restaurant> rList ) {
+        boolean fromMaxToMin = false;
         ArrayList<Double> list = new ArrayList<Double>();
         ArrayList<Double> tr = new ArrayList<Double>();
-        ArrayList<Restaurant> temp = new ArrayList<Restaurant>();
+        ArrayList<Restaurant> temp = new  ArrayList<Restaurant>();
         temp = (ArrayList<Restaurant>) rList.clone();
-        switch (str) {
-            case "Service":
-                for (Restaurant res1 : temp) {
-                    list.add(res1.getServiceScore());
-                    tr.add(res1.getServiceScore());
-                }
+        switch(str){
+            case "Ascending":
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return lhs.getAverageSpent() - rhs.getAverageSpent();
+                    }
+                });
                 break;
-            case "Environment":
-                for (Restaurant res1 : temp) {
-                    list.add(res1.getEnvironmentScore());
-                    tr.add(res1.getEnvironmentScore());
-                }
+            case "Descending":
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return rhs.getAverageSpent() - lhs.getAverageSpent();
+                    }
+                });
+                break;
+            case "Nearest":
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return lhs.getDistance() - rhs.getDistance();
+                    }
+                });
+                break;
+            case "Furthest":
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return rhs.getDistance() - lhs.getDistance();
+                    }
+                });
+                break;
+            case "Service":
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return (int) (rhs.getServiceScore()*10 - lhs.getServiceScore()*10);
+                    }
+                });
                 break;
             case "Flavor":
-                for (Restaurant res1 : temp) {
-                    list.add(res1.getFlavorScore());
-                    tr.add(res1.getFlavorScore());
-                }
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return (int) (rhs.getFlavorScore()*10 - lhs.getFlavorScore()*10);
+                    }
+                });
                 break;
-
-        }
-        ArrayList<Integer> index = new ArrayList<Integer>();
-        Collections.sort(list);
-        for (Double dou : list) {
-            index.add(tr.indexOf(dou));
-        }
-        rList.clear();
-        RestaurantLinkedList rl = new RestaurantLinkedList();
-        for (int i : index) {
-            rList.add(temp.get(index.size() - i - 1));
+            case "Environment":
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return (int) (rhs.getEnvironmentScore()*10 - lhs.getEnvironmentScore()*10);
+                    }
+                });
+                break;
+            case "Total":
+                Collections.sort(rList, new Comparator<Restaurant>() {
+                    @Override
+                    public int compare(Restaurant lhs, Restaurant rhs) {
+                        return (int) ((rhs.getServiceScore() + rhs.getEnvironmentScore() + rhs.getFlavorScore())*10 - (lhs.getServiceScore() + lhs.getEnvironmentScore() + lhs.getFlavorScore())*10);
+                    }
+                });
+                break;
         }
     }
+
 }

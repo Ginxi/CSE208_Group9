@@ -3,9 +3,9 @@ package com.example.sihan.restaurantrecommendation.Function;
 
 /**
  * Write a description of RestaurantRunnerWithFilters here.
- *
+ * 
+ * @di.yao_1301853 (your name) 
  * @version (a version number or a date)
- * @di.yao_1301853 (your name)
  */
 public class RestaurantRunnerWithFilters {
 //    public void printAverageRatings(){
@@ -34,7 +34,7 @@ public class RestaurantRunnerWithFilters {
 //            }
 //        }
 //    }
-
+    
 //    public void printAverageRatingsByDistanceAndCategories(){
 //        String userFile = "CSE208Data2Short.csv";
 //        String restaurantFile = "raw/cse208data1short.csv";

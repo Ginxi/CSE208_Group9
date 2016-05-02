@@ -43,9 +43,9 @@
         mv:mv_strokeWidth="1dp" />
 
     <View
+        android:layout_alignParentRight="true"
         android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
         android:layout_marginBottom="2dp"
         android:layout_marginTop="2dp"
         android:background="#f0f0f0"></View>

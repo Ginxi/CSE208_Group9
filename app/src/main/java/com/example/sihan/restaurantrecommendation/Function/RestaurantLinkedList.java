@@ -6,6 +6,7 @@
 package com.example.sihan.restaurantrecommendation.Function;
 
 /**
+ *
  * @author Ginxi
  */
 
@@ -90,6 +91,10 @@ public class RestaurantLinkedList {
         private Restaurant head;
         private RestaurantNode tail;
 
+        public void chop() {
+            tail = null;
+        }
+
         public RestaurantNode(Restaurant b, RestaurantNode t) {
             head = b;
             tail = t;
@@ -97,10 +102,6 @@ public class RestaurantLinkedList {
 
         public RestaurantNode(Restaurant b) {
             head = b;
-            tail = null;
-        }
-
-        public void chop() {
             tail = null;
         }
 
