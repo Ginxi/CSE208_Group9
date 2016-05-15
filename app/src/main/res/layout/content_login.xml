@@ -1,103 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1"
-    android:background="@drawable/lo">
+    android:background="@drawable/register_bg"
+    >
 
-    <ImageView
-        android:layout_width="330dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_vertical"
-        android:id="@+id/imageView1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_height="450dp"
+        android:background="#415665c2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        >
 
+        <com.example.sihan.restaurantrecommendation.Activity.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/userPictureLogin"
+            android:background="@drawable/default_profile"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp" />
 
-    <EditText
-        android:id="@+id/Account"
-        android:layout_width="350dp"
-        android:layout_marginLeft="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="40px"
-        android:minWidth="350px"
-        android:textStyle="bold"
-        android:layout_column="0"
-        android:inputType="text"
-        android:hint="       Enter   Account"
-        android:textColorHint="#EEEEE0"
-        android:drawableRight="@drawable/account"
-        android:layout_span="7" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                >
 
-
-
-    <EditText
-        android:id="@+id/passwordin"
-        android:layout_width="350dp"
-        android:layout_marginLeft="0dp"
-        android:layout_height="wrap_content"
-        android:minWidth="350px"
-        android:textSize="40px"
-        android:inputType="textPassword"
-        android:textStyle="bold"
-        android:layout_column="0"
-        android:hint="  Enter password   "
-        android:textColorHint="#EEEEE0"
-        android:drawableRight="@drawable/password"
-        android:layout_span="7" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/account" />
 
 
-    <Button
-        android:id="@+id/login"
-        android:text="   Log   in"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:layout_column="0"
-        android:layout_marginLeft="10dp"
-        android:layout_span="7"
-        android:background="#927ae6"
-        android:layout_marginTop="10dp"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/signUp"
-        android:layout_width="150dp"
-        android:layout_height="32dp"
-        android:text="           Sign    up"
-        android:background="#00000000"
-        android:layout_marginTop="20px"
-        android:gravity="center_vertical"
-        android:textAllCaps="false"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#fbe1e1" />
-
-    <Button
-        android:id="@+id/useAsVisitor"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:text="     Use As Vistor"
-        android:background="#00000000"
-        android:layout_marginTop="20px"
-        android:gravity="center_vertical"
-        android:textAllCaps="false"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#fbe1e1" />
-
-    <Button
-        android:layout_marginTop="150px"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forget your password?"
-        android:id="@+id/forget"
-        android:layout_gravity="center_horizontal"
-        android:background="#00000000"
-        android:layout_column="2"
-        android:textColorHighlight="#fdfefc"
-        android:textColor="#6ab971"
-        android:layout_span="1"
-        android:gravity="center"
-        android:textAllCaps="false"
-        android:textSize="18dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:background="@drawable/main_search_search_shape"
+                >
+            <EditText
+                android:id="@+id/Account"
+                android:layout_weight="4"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:imeOptions="actionSearch"
+                android:textColor="#0e0e0e"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:singleLine="true"
+                android:background="@null"
+                android:hint="  Input account number"
+                android:textColorHint="#b0c6ce"
+                android:gravity="center_vertical"
+                />
 </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            android:padding="10dp"
+
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/password" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:background="@drawable/main_search_search_shape"
+                >
+            <EditText
+                android:id="@+id/passwordin"
+                android:layout_weight="4"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:imeOptions="actionSearch"
+                android:textColor="#0e0e0e"
+                android:textSize="17sp"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:hint="  Input password"
+                android:textColorHint="#b0c6ce"
+
+                android:gravity="center_vertical"
+                />
+                </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <Button
+                android:id="@+id/login"
+                android:text="   Log   in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_column="0"
+                android:layout_span="7"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:background="#bf4ef4ec"
+                android:layout_marginTop="10dp"
+                android:textColor="#ffffff"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/signUp"
+                    android:text="Sign up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_column="0"
+                    android:layout_span="7"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#004ef4ec"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/useAsVisitor"
+                    android:text="Use as visitor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_column="0"
+                    android:layout_span="7"
+                    android:layout_marginRight="10dp"
+                    android:textAllCaps="false"
+                    android:background="#004ef4ec"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

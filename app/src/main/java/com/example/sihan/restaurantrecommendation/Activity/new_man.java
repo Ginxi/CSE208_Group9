@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.example.sihan.restaurantrecommendation.Function.EfficientUser;
 import com.example.sihan.restaurantrecommendation.Function.FirstRatings;
 import com.example.sihan.restaurantrecommendation.Function.Restaurant;
 import com.example.sihan.restaurantrecommendation.R;
@@ -44,11 +45,11 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
     private List<SlideMenuItem> list = new ArrayList<>();
     private ContentFragment contentFragment;
     private ViewAnimator viewAnimator;
-    private int res = R.drawable.content_music;
+    private int res = R.drawable.content_chuan;
     private LinearLayout linearLayout;
     private String word = "";
     private int averageSpent;
-    private String categories;
+    private String categories = "";
     private String place;
     private int distances;
     private String scoreFlag;
@@ -59,12 +60,17 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
     private Spinner spinnerPlace;
     private EditText search;
     private ArrayList<Restaurant> restaurantList = new ArrayList<Restaurant>();
-
+    private int[] imgArray = new int[] {R.drawable.content_chuan,R.drawable.content_xiang,R.drawable.content_hotpot,R.drawable.content_yue,
+            R.drawable.content_su,R.drawable.content_japan,R.drawable.content_west,R.drawable.content_korea};
+    private int imgIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_man);
-        //add
+
+        ArrayList<EfficientUser> users = (ArrayList<EfficientUser>) getIntent().getSerializableExtra("user");
+
+      //  Toast.makeText(new_man.this, users.get(0).getName(), Toast.LENGTH_LONG).show();
         findViewById(R.id.searchField).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +116,7 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
 
         //add finished
 
-        contentFragment = ContentFragment.newInstance(R.drawable.content_music);
+        contentFragment = ContentFragment.newInstance(R.drawable.content_chuan);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame, contentFragment)
                 .commit();
@@ -195,27 +201,28 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
     private void createMenuList() {
         SlideMenuItem menuItem0 = new SlideMenuItem(ContentFragment.CLOSE, R.drawable.icn_close);
         list.add(menuItem0);
-        SlideMenuItem menuItem = new SlideMenuItem(ContentFragment.BUILDING, R.drawable.icn_1);
+        SlideMenuItem menuItem = new SlideMenuItem(ContentFragment.SICHUAN, R.drawable.sichuan);
         list.add(menuItem);
-        SlideMenuItem menuItem2 = new SlideMenuItem(ContentFragment.BOOK, R.drawable.icn_2);
+        SlideMenuItem menuItem2 = new SlideMenuItem(ContentFragment.HUNAN, R.drawable.hunan);
         list.add(menuItem2);
-        SlideMenuItem menuItem3 = new SlideMenuItem(ContentFragment.PAINT, R.drawable.icn_3);
+        SlideMenuItem menuItem3 = new SlideMenuItem(ContentFragment.HOTPOT, R.drawable.hotpot);
         list.add(menuItem3);
-        SlideMenuItem menuItem4 = new SlideMenuItem(ContentFragment.CASE, R.drawable.icn_4);
+        SlideMenuItem menuItem4 = new SlideMenuItem(ContentFragment.CANTONESE, R.drawable.cantonese);
         list.add(menuItem4);
-        SlideMenuItem menuItem5 = new SlideMenuItem(ContentFragment.SHOP, R.drawable.icn_5);
+        SlideMenuItem menuItem5 = new SlideMenuItem(ContentFragment.SOOCHAW, R.drawable.soochaw);
         list.add(menuItem5);
-        SlideMenuItem menuItem6 = new SlideMenuItem(ContentFragment.PARTY, R.drawable.icn_6);
+        SlideMenuItem menuItem6 = new SlideMenuItem(ContentFragment.JAPAN, R.drawable.japan);
         list.add(menuItem6);
-        SlideMenuItem menuItem7 = new SlideMenuItem(ContentFragment.MOVIE, R.drawable.icn_7);
+        SlideMenuItem menuItem7 = new SlideMenuItem(ContentFragment.WESTERN, R.drawable.western);
         list.add(menuItem7);
+        SlideMenuItem menuItem8 = new SlideMenuItem(ContentFragment.KOREAN, R.drawable.korean);
+        list.add(menuItem8);
     }
 
     // changed
     private void rankFactor() {
         FirstRatings fr = new FirstRatings();
         //  ArrayList<Restaurant> rl = new ArrayList<Restaurant>();
-        categories = "";
 
         isFile = getResources().openRawResource(R.raw.cse208data1short);
         restaurantList = fr.wantedRestaurants(word, averageSpent, categories, place, distances, isFile);
@@ -298,13 +305,17 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
 //    }
 
     private ScreenShotable replaceFragment(ScreenShotable screenShotable, int topPosition) {
-        this.res = this.res == R.drawable.content_music ? R.drawable.content_films : R.drawable.content_music;
+       // this.res = this.res == R.drawable.content_chuan ? R.drawable.content_western : R.drawable.content_chuan;
+        this.res = imgArray[imgIndex];
+        //Toast.makeText(new_man.this, String.valueOf(topPosition), Toast.LENGTH_LONG).show();
         View view = findViewById(R.id.content_frame);
         int finalRadius = Math.max(view.getWidth(), view.getHeight());
         SupportAnimator animator = ViewAnimationUtils.createCircularReveal(view, 0, topPosition, 0, finalRadius);
         animator.setInterpolator(new AccelerateInterpolator());
         animator.setDuration(ViewAnimator.CIRCULAR_REVEAL_ANIMATION_DURATION);
-
+       // ImageView img = (ImageView) findViewById(R.id.content_overlay);
+       // Bitmap bitmap = ShopAdapter.readBitMap(new_man.this, imgArray[imgIndex]);
+      //  img.setImageBitmap(bitmap);
         findViewById(R.id.content_overlay).setBackgroundDrawable(new BitmapDrawable(getResources(), screenShotable.getBitmap()));
         animator.start();
         ContentFragment contentFragment = ContentFragment.newInstance(this.res);
@@ -316,7 +327,40 @@ public class new_man extends ActionBarActivity implements ViewAnimator.ViewAnima
     public ScreenShotable onSwitch(Resourceble slideMenuItem, ScreenShotable screenShotable, int position) {
         switch (slideMenuItem.getName()) {
             case ContentFragment.CLOSE:
+                categories = "";
                 return screenShotable;
+            case ContentFragment.SICHUAN:
+                categories = "Sichuan";
+                imgIndex = 0;
+                return replaceFragment(screenShotable, position);
+            case ContentFragment.HUNAN:
+                categories = "Hunan";
+                imgIndex = 1;
+                return replaceFragment(screenShotable, position);
+            case ContentFragment.HOTPOT:
+                categories = "Hotpot";
+                imgIndex = 2;
+                return replaceFragment(screenShotable, position);
+            case ContentFragment.CANTONESE:
+                categories = "Cantonese";
+                imgIndex = 3;
+                return replaceFragment(screenShotable, position);
+            case ContentFragment.SOOCHAW:
+                categories = "Suzhou";
+                imgIndex = 4;
+                return replaceFragment(screenShotable, position);
+            case ContentFragment.JAPAN:
+                categories = "Japanese";
+                imgIndex = 5;
+                return replaceFragment(screenShotable, position);
+            case ContentFragment.WESTERN:
+                categories = "Western";
+                imgIndex = 6;
+                return replaceFragment(screenShotable, position);
+            case ContentFragment.KOREAN:
+                categories = "Korean";
+                imgIndex = 7;
+                return replaceFragment(screenShotable, position);
             default:
                 return replaceFragment(screenShotable, position);
         }

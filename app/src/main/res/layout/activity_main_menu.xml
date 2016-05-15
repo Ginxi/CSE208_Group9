@@ -4,7 +4,7 @@
     xmlns:hyman="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@drawable/menu"
+    android:background="@drawable/register_bg"
     >
 <com.example.sihan.restaurantrecommendation.com.example.sihan.restaurantrecommendation.view.SlidingMenu
     android:id="@+id/slideMenu"
@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff"
+            android:orientation="vertical"
             >
           <!--  <Button
                 android:id="@+id/menu_switch"
@@ -40,11 +41,11 @@
                     android:padding="10dp"
                     android:background="@drawable/null_btn_text"/>
                -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/headbg">
-
 
                 <ImageButton
                     android:id="@+id/menu_switch"
@@ -61,15 +62,24 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="50dp"
                     android:gravity="center"
-                    android:text="Personal Recommendation"
+                    android:text="Peronal Recommendation"
                     android:textColor="#FFFFFFFF"
                     android:textSize="18sp" />
+
+
             </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></android.support.v7.widget.RecyclerView>
 
 
         </LinearLayout>
 
 
             </LinearLayout>
+
 </com.example.sihan.restaurantrecommendation.com.example.sihan.restaurantrecommendation.view.SlidingMenu>
+
 </RelativeLayout>

@@ -9,17 +9,20 @@
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     android:orientation="vertical"
+
     >
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+
+       >
         <ImageButton
             android:id="@+id/mannual_search"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/home_pressed"
+            android:src="@drawable/manual"
             android:layout_centerVertical="true"
             />
         <TextView
@@ -34,8 +37,10 @@
             />
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="5dp"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+       >
         <ImageButton
             android:id="@+id/personal_search"
             android:layout_width="50dp"
@@ -43,7 +48,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:onClick="toggleMenu"
-            android:src="@drawable/home_pressed"
+            android:src="@drawable/personalsearch"
             android:layout_centerVertical="true"
             />
         <TextView
@@ -58,15 +63,17 @@
             />
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="5dp"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+       >
         <ImageButton
             android:id="@+id/personal_account"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/home_pressed"
+            android:src="@drawable/personalaccount"
             android:layout_centerVertical="true"
             />
         <TextView
@@ -82,7 +89,11 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#2a4d50fc"
+        android:visibility="invisible"
+        >
         <ImageButton
             android:id="@+id/additional_function"
             android:layout_width="50dp"
@@ -97,6 +108,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textColor="#ffffff"
+
             android:text="Additional Function"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/additional_function"

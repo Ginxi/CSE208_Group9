@@ -14,9 +14,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.example.sihan.restaurantrecommendation.R;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 import com.yalantis.contextmenu.lib.MenuObject;
@@ -31,15 +36,53 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
 
     private FragmentManager fragmentManager;
     private ContextMenuDialogFragment mMenuDialogFragment;
+    private ArrayList<String> resid = new ArrayList<String>();
+    public static ArrayList<com.example.sihan.restaurantrecommendation.Function.Restaurant> resList = new ArrayList<com.example.sihan.restaurantrecommendation.Function.Restaurant>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final AVQuery<AVObject> query = new AVQuery<>("User"+Login.loginAccount);
+        query.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                for (AVObject avObject : list) {
+                    String ressssid = avObject.getString("RestaurantID");
+                    if (ressssid != null) {
+                        resid.add(ressssid);
+                        //  Toast.makeText(favouriteList.this, ressssid, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+        });
+
+        final AVQuery<AVObject> queryres = new AVQuery<>("cse208data1short");
+        queryres.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                resList.clear();
+                for(String str: resid) {
+                    for (AVObject avObject : list) {
+                        String ressssid = avObject.getString("restaurantID");
+                        if (ressssid != null && ressssid.equals(str)) {
+                            resList.add(new com.example.sihan.restaurantrecommendation.Function.Restaurant(ressssid, avObject.getString("title"),
+                                    Integer.parseInt(avObject.getString("averageSpent")), avObject.getString("categories"), Double.parseDouble(avObject.getString("environmentScore")),
+                                    Double.parseDouble(avObject.getString("serviceScore")), Double.parseDouble(avObject.getString("flavorScore")), avObject.getString("phoneNumber"),
+                                    avObject.getString("address"), Integer.parseInt(avObject.getString("distance"))));
+                        }
+                    }
+                }
+            }
+
+        });
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_main);
         fragmentManager = getSupportFragmentManager();
         initToolbar();
         initMenuFragment();
          addFragment(new User_MainFragment(), true, R.id.containerUser);
+
     }
 
     private void initMenuFragment() {
@@ -104,6 +147,7 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
         menuObjects.add(block);
         return menuObjects;
     }
+
 
     private void initToolbar() {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.user_toolbar);
@@ -175,7 +219,7 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
                 startActivity(new Intent(User_MainActivity.this, favouriteList.class));
                 break;
             case 3:
-                startActivity(new Intent(User_MainActivity.this, Restaurant.class));
+                startActivity(new Intent(User_MainActivity.this, Register.class));
                 break;
         }
 
@@ -193,7 +237,7 @@ public class User_MainActivity extends AppCompatActivity implements OnMenuItemCl
                 startActivity(new Intent(User_MainActivity.this, favouriteList.class));
                 break;
             case 3:
-                startActivity(new Intent(User_MainActivity.this, Restaurant.class));
+                startActivity(new Intent(User_MainActivity.this, Register.class));
                 break;
         }
 

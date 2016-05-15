@@ -4,8 +4,23 @@
     package="com.example.sihan.restaurantrecommendation">
 
     <uses-sdk tools:overrideLibrary="yalantis.com.sidemenu" />
+    <!--<uses-sdk-->
+        <!--android:minSdkVersion="8"-->
+        <!--android:targetSdkVersion="18" />-->
+
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
+        tools:replace="android:icon"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,7 +38,14 @@
         </activity>
         <activity
             android:name=".Activity.MainMenu"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            >
+        </activity>
+        <activity
+            android:name=".Activity.SysApplication"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
         <activity
             android:name=".Activity.new_man"
             android:configChanges="orientation|screenSize"
@@ -39,13 +61,12 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.MannualSearch"
-            android:label="@string/title_activity_mannual_search"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Activity.Login"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask">
+ </activity>
+
         <activity
             android:name=".Activity.personalSearch"
             android:label="@string/title_activity_personal_search"
@@ -63,6 +84,29 @@
         <activity android:name=".Activity.favouriteList" />
         <activity android:name=".Activity.editPersonalProfile" />
         <activity android:name=".Activity.Restaurant"></activity>
+
+        android:name=".MyLeanCloudApp" >
+        <!-- 实时通信模块、推送（若使用该功能，需添加以下声明）START -->
+        <service android:name="com.avos.avoscloud.PushService" />
+
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <!-- 实时通信模块、推送 END -->
+
+
+        <!-- 反馈组件（若使用该功能，需添加以下声明）START -->
+        <activity android:name="com.avos.avoscloud.feedback.ThreadActivity" />
+        <!-- 反馈组件 END -->
+        <!--<activity android:name=".Activity.logininininin" />-->
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

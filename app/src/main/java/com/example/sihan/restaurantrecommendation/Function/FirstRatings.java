@@ -149,8 +149,8 @@ public class FirstRatings {
         return wanted;
     }
 
-    public ArrayList<User> loadUsers(String fileName, InputStream is) {
-        ArrayList<User> allUsers = new ArrayList<User>();
+    public ArrayList<EfficientUser> loadUsers(String fileName, InputStream is) {
+        ArrayList<EfficientUser> allUsers = new ArrayList<EfficientUser>();
         ArrayList<String> storeID = new ArrayList<String>();
         FileResource fr = new FileResource(fileName, is);
         CSVParser parser = fr.getCSVParser();
@@ -161,15 +161,18 @@ public class FirstRatings {
             double flavorScore = Double.parseDouble(current.get("flavorScore"));
             double environmentScore = Double.parseDouble(current.get("environmentScore"));
             double serviceScore = Double.parseDouble(current.get("serviceScore"));
+            // changed
+            String account = current.get("account");
+            String password = current.get("password");
 
-            User newUser = new EfficientUser(user_id, userName);
+            EfficientUser newUser = new EfficientUser(user_id, userName, account, password);
             newUser.addRating(restaurant_id, flavorScore, environmentScore, serviceScore);
 
             if (!storeID.contains(user_id)) {
                 storeID.add(user_id);
                 allUsers.add(newUser);
             } else {
-                for (User currentUser : allUsers) {
+                for (EfficientUser currentUser : allUsers) {
                     String currentID = currentUser.getID();
                     if (currentID.equals(user_id)) {
                         currentUser.addRating(restaurant_id, flavorScore, environmentScore, serviceScore);
@@ -180,17 +183,17 @@ public class FirstRatings {
         return allUsers;
     }
 
-    public ArrayList<User> findMaxNumRatings(ArrayList<User> allUsers) {
-        ArrayList<User> output = new ArrayList<User>();
+    public ArrayList<EfficientUser> findMaxNumRatings(ArrayList<EfficientUser> allUsers) {
+        ArrayList<EfficientUser> output = new ArrayList<EfficientUser>();
         int maxNum = 0;
-        for (User currentUser : allUsers) {
+        for (EfficientUser currentUser : allUsers) {
             int numRatings = currentUser.numRatings();
             if (numRatings >= maxNum) {
                 maxNum = numRatings;
             }
         }
 
-        for (User currentUser : allUsers) {
+        for (EfficientUser currentUser : allUsers) {
             int numRatings = currentUser.numRatings();
             if (numRatings == maxNum) {
                 output.add(currentUser);
@@ -200,9 +203,9 @@ public class FirstRatings {
         return output;
     }
 
-    public ArrayList<User> findRestaurant(ArrayList<User> allUsers, String rest_id) {
-        ArrayList<User> findRestaurant = new ArrayList<User>();
-        for (User currentUser : allUsers) {
+    public ArrayList<EfficientUser> findRestaurant(ArrayList<EfficientUser> allUsers, String rest_id) {
+        ArrayList<EfficientUser> findRestaurant = new ArrayList<EfficientUser>();
+        for (EfficientUser currentUser : allUsers) {
             if (currentUser.getAverageRating(rest_id) != -1) {
                 findRestaurant.add(currentUser);
             }
@@ -210,9 +213,9 @@ public class FirstRatings {
         return findRestaurant;
     }
 
-    public int restaurantNum(ArrayList<User> allUsers) {
+    public int restaurantNum(ArrayList<EfficientUser> allUsers) {
         ArrayList<String> restaurantList = new ArrayList<String>();
-        for (User currentUser : allUsers) {
+        for (EfficientUser currentUser : allUsers) {
             ArrayList<String> list = currentUser.getIDOfRestaurantRated();
             for (String restaurant : list) {
                 if (!restaurantList.contains(restaurant)) {
@@ -224,24 +227,24 @@ public class FirstRatings {
     }
 
     public void testLoadUsers() {
-        String filename = "CSE208Data2Short.csv";
+        String filename = "cse208Data2Short.csv";
         InputStream is = new InputStream() {
             @Override
             public int read() throws IOException {
                 return 0;
             }
         };
-        ArrayList<User> output = loadUsers(filename, is);
+        ArrayList<EfficientUser> output = loadUsers(filename, is);
         System.out.println("The number of users in " + filename + ": " + output.size());
 
-        for (User current : output) {
+        for (EfficientUser current : output) {
             System.out.println("ID: " + current.getID());
             System.out.println("Number of rated restaurants: " + current.numRatings());
         }
 
         System.out.println(" ");
         String rest_id = "3";
-        ArrayList<User> findRestaurants = findRestaurant(output, rest_id);
+        ArrayList<EfficientUser> findRestaurants = findRestaurant(output, rest_id);
         System.out.println("The restaurant ID: " + rest_id);
         System.out.println("The number of users score this restaurant: " + findRestaurants.size());
 

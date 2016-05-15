@@ -2,114 +2,208 @@
 <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/lo"
+    android:background="@drawable/register_bg"
     android:orientation="vertical"
     >
-
-
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_vertical"
-        android:id="@+id/imageView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Account:"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        />
-
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="12dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_height="450dp"
+        android:background="#415665c2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        >
 
-        <!-- 输入的搜索信息 -->
+        <com.example.sihan.restaurantrecommendation.Activity.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/userPictureRegister"
+            android:background="@drawable/camera"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp" />
 
-        <EditText
-            android:id="@+id/createAccount"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:orientation="horizontal"
+            >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical|right">
+        <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:imeOptions="actionSearch"
-            android:layout_marginLeft="10dp"
-            android:textColor="#0e0e0e"
-            android:hint="Please create 10 number account:"
-            android:textSize="17sp"
-            android:singleLine="true"
-            android:textColorHint="#b0c6ce"
-            android:gravity="center_vertical"
-            android:background="@null"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password:"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="30sp"
-        />
-
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="12dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal">
-
-        <!-- 输入的搜索信息 -->
-        <EditText
-            android:id="@+id/createPassword"
-            android:layout_weight="4"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:imeOptions="actionSearch"
-            android:layout_marginLeft="10dp"
-            android:textColor="#0e0e0e"
-            android:hint="Please create 6 number password:"
-            android:textSize="17sp"
-            android:singleLine="true"
-            android:textColorHint="#b0c6ce"
-            android:gravity="center_vertical"
-            android:background="@null"
+            android:layout_height="wrap_content"
+            android:id="@+id/camera"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_camera_alt_white_24dp"
             />
     </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1
+                "
+                android:gravity="center_vertical|left">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/albumn"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_collections_white_24dp"
+                />
+                </LinearLayout>>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                >
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:text="Confirm"
-        android:layout_marginTop="50dp"
-        android:id="@+id/signNewAccount"
-        android:layout_gravity="center_horizontal"
-        android:background="#927ae6"
-        android:textAllCaps="false"
-        />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/account" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="return"
-        android:layout_marginTop="10dp"
-        android:id="@+id/btn_qu"
-        android:layout_gravity="center_horizontal"
-        android:background="#00000000"
 
-        android:textColor="#ffffff"
-        android:textSize="20sp"
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:background="@drawable/main_search_search_shape"
+                >
+            <EditText
+                android:id="@+id/createAccount"
+                android:layout_weight="4"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:imeOptions="actionSearch"
+                android:textColor="#0e0e0e"
+                android:layout_marginLeft="10dp"
+                android:textSize="17sp"
+                android:singleLine="true"
+                android:background="@null"
+                android:hint="  Create account number"
+                android:textColorHint="#b0c6ce"
+                android:gravity="center_vertical"
+                />
+</LinearLayout>
 
-        />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            android:padding="10dp"
+
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/password" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:background="@drawable/main_search_search_shape"
+                >
+            <EditText
+                android:id="@+id/createPassword"
+                android:layout_weight="4"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:imeOptions="actionSearch"
+                android:layout_marginLeft="10dp"
+                android:textColor="#0e0e0e"
+                android:textSize="17sp"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:background="@null"
+                android:hint="  Create password"
+                android:textColorHint="#b0c6ce"
+                android:gravity="center_vertical"
+
+                />
+                </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <Button
+                android:id="@+id/signNewAccount"
+                android:text="    Confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_column="0"
+                android:layout_span="7"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:background="#bf4ef4ec"
+                android:layout_marginTop="10dp"
+                android:textColor="#ffffff"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/Register_back"
+                android:text="Cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_column="0"
+                android:layout_span="7"
+                android:textAllCaps="false"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="80dp"
+                android:background="#bf4ef4ec"
+                android:layout_marginTop="10dp"
+                android:textColor="#ffffff"
+
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </LinearLayout>

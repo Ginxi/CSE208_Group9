@@ -1,17 +1,20 @@
 package com.example.sihan.restaurantrecommendation.Function;
 
 
+import java.io.Serializable;
+
 /**
  * Write a description of Rating here.
  * 
  * @di.yao_1301853 (your name) 
  * @version (a version number or a date)
  */
-public class Rating implements Comparable<Rating> {
+//changed
+public class Rating implements Comparable<Rating>, Serializable {
     private String item;
     private double flavorValue;
     private double environValue;
-    private double serviceValue; 
+    private double serviceValue;
 
     public Rating (String anItem, double value1, double value2, double value3) {
         item = anItem;
@@ -41,6 +44,7 @@ public class Rating implements Comparable<Rating> {
     public double getAverageValue(){
         return (flavorValue+environValue+serviceValue)/3;
     }
+
     // Returns a string of all the rating information
     public String toString () {
         return "[" + getItem() + ", falvor: " + getFlavorValue() +", environment: " + getEnvironValue() + ", service: "+ getServiceValue() + "]";

@@ -1,13 +1,15 @@
 package com.example.sihan.restaurantrecommendation.Function;
 
 
+import java.io.Serializable;
+
 /**
  * Write a description of Restaurant here.
  * 
  * @di.yao_1301853 (your name) 
  * @version (a version number or a date)
  */
-public class Restaurant {
+public class Restaurant implements Serializable{
     private String id;
     private String title;
     private int averageSpent;
@@ -55,7 +57,7 @@ public class Restaurant {
     }
     
     public double getServiceScore(){
-        return flavorScore;
+        return serviceScore;
     }
 
     public double getFlavorScore(){

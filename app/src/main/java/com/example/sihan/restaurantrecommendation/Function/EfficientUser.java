@@ -7,19 +7,27 @@ package com.example.sihan.restaurantrecommendation.Function;
  * @di.yao_1301853 (your name) 
  * @version (a version number or a date)
  */
-import java.util.*;
-public class EfficientUser implements User {
+// changed
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+public class EfficientUser implements Serializable {
     private String myID;
     private String myName;
+    private String myAccount;
+    private String myPassword;
     private HashMap<String, Rating> myRatings;
     
     public EfficientUser(){
         myRatings = new HashMap<String, Rating>();
     }
     
-    public EfficientUser(String id, String name){
+    public EfficientUser(String id, String name, String account, String password){
         myID = id; 
         myName = name;
+        myAccount = account;
+        myPassword = password;
         myRatings = new HashMap<String, Rating>();
     }
     
@@ -71,6 +79,14 @@ public class EfficientUser implements User {
         }
         
         return -1;
+    }
+
+    public String getAccount() {
+       return myAccount;
+    }
+
+    public String getPassword() {
+        return myPassword;
     }
     
     public int numRatings(){

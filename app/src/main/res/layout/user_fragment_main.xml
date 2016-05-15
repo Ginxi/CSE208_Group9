@@ -10,15 +10,50 @@
         android:orientation="vertical"
         android:background="@color/menu_item_background">
 
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/photo"
-            android:scaleType="fitXY" />
+            android:layout_height="230dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:src="@drawable/photo"
+                android:scaleType="fitXY" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="40dp"
+                    android:layout_height="105dp"
+                    android:gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circle"
+                    >
+                    <com.example.sihan.restaurantrecommendation.Activity.CircleImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/photo"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"></LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:padding="1dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -28,19 +63,19 @@
                 android:padding="10dp"
                 android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_color"
-                android:textSize="@dimen/title_text_size"
-                android:text="@string/title"
-                android:layout_marginBottom="@dimen/main_screen_side_padding" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/title_text_size"
+                    android:text="@string/title"
+                    android:layout_marginBottom="@dimen/main_screen_side_padding" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.4dp"
                     android:background="#aaaaaa" />
                 <TextView
-                    android:id="@+id/editPersonalBasicInfo"
+                    android:id="@+id/displayPersonalBasicInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_color"
@@ -48,10 +83,10 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/text"
                     />
-        </LinearLayout>
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.4dp"
+                android:layout_height="1.4dp"
                 android:background="#aaaaaa" />
 
             <LinearLayout
@@ -142,7 +177,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.4dp"
+                android:layout_height="1.4dp"
                 android:background="#aaaaaa" />
 
             <LinearLayout
@@ -181,7 +216,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/icon_search"
+                        android:background="@drawable/handphone"
                         />
                 </LinearLayout>
 
@@ -206,7 +241,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/displayTaste"
+                    android:id="@+id/displayTasteHobby"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sweet"
@@ -235,6 +270,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.4dp"
                 android:background="#aaaaaa" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -275,6 +311,22 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.4dp"
+                android:background="#aaaaaa" />
+
+            <Button
+                android:id="@+id/logOut"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/headbg"
+                android:textColor="#feffff"
+                android:textSize="20sp"
+                android:text="Log out"
+                android:layout_marginTop="10dp"
+                />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

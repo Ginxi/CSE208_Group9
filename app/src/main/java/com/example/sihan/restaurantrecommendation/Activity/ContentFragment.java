@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.example.sihan.restaurantrecommendation.R;
+
+import sunger.net.org.dropmenu.adapter.ShopAdapter;
 import yalantis.com.sidemenu.interfaces.ScreenShotable;
 
 /**
@@ -17,13 +19,14 @@ import yalantis.com.sidemenu.interfaces.ScreenShotable;
  */
 public class ContentFragment extends Fragment implements ScreenShotable {
     public static final String CLOSE = "Close";
-    public static final String BUILDING = "Building";
-    public static final String BOOK = "Book";
-    public static final String PAINT = "Paint";
-    public static final String CASE = "Case";
-    public static final String SHOP = "Shop";
-    public static final String PARTY = "Party";
-    public static final String MOVIE = "Movie";
+    public static final String SICHUAN = "Sichuan";
+    public static final String HUNAN = "Hunan";
+    public static final String HOTPOT = "Hotpot";
+    public static final String CANTONESE = "Cantonese";
+    public static final String SOOCHAW = "Soochaw";
+    public static final String JAPAN = "Japan";
+    public static final String WESTERN = "western";
+    public static final String KOREAN = "Korean";
 
     private View containerView;
     protected ImageView mImageView;
@@ -58,7 +61,8 @@ public class ContentFragment extends Fragment implements ScreenShotable {
         mImageView = (ImageView) rootView.findViewById(R.id.image_content);
         mImageView.setClickable(true);
         mImageView.setFocusable(true);
-        mImageView.setImageResource(res);
+//        mImageView.setImageResource(res);
+        mImageView.setImageBitmap(ShopAdapter.readBitMap(rootView.getContext(), res));
         return rootView;
     }
 

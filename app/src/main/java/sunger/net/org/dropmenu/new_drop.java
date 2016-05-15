@@ -42,19 +42,19 @@ public class new_drop extends AppCompatActivity {
     private MenuLayout menuLayout;
     private ShopAdapter shopAdapter;
     private String inputString;
-    private String[] restaurant;
+    private String[] restaurantInfo;
     private ArrayList<Restaurant> restaurantList;
-    private  RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Intent intent = getIntent();
-        inputString = intent.getStringExtra("res");
+  //      restaurantList = (ArrayList<Restaurant>) getIntent().getSerializableExtra("res");
+        inputString = getIntent().getStringExtra("res");
         restaurantList = new ArrayList<Restaurant>();
         if (inputString.endsWith(";")) {
-            restaurant = inputString.split(";");
+            restaurantInfo = inputString.split(";");
             int count = 0;
-            for (String temp: restaurant)
+            for (String temp: restaurantInfo)
             {
                 String anID = temp.split(",")[0].split("=")[1];
                 String aTitle = temp.split(",")[1].split("=")[1];
@@ -69,7 +69,7 @@ public class new_drop extends AppCompatActivity {
                 restaurantList.add(new Restaurant(anID,aTitle,anAverageSpent,aCategories,anEnvironmentScore,aServiceScore,aFlavorScore,aPhoneNumber,anAddress,aDistance));
             }
         } else {
-            restaurant = new String[]{"Restaurant"};
+            restaurantInfo = new String[]{"Restaurant"};
         }
 
         super.onCreate(savedInstanceState);
@@ -103,7 +103,7 @@ public class new_drop extends AppCompatActivity {
             }
         });
 
-        shopAdapter = new ShopAdapter(restaurant);
+        shopAdapter = new ShopAdapter(restaurantList);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         DividerLine dividerLine = new DividerLine(DividerLine.VERTICAL);
         dividerLine.setSize(10);
@@ -116,17 +116,18 @@ public class new_drop extends AppCompatActivity {
             public void onItemClick(View view, String data) {
                 Intent intent = new Intent(new_drop.this, com.example.sihan.restaurantrecommendation.Activity.Restaurant.class);
                 intent.putExtra("data", data);
-            startActivity(intent);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View view, String data) {
+
             }
         });
     }
 
     private void updateTabData() {
         mTabEntities.clear();
-    //    recyclerView.removeAllViews();
-      //  recyclerView.setAdapter(shopAdapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setAdapter(shopAdapter);
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
@@ -149,10 +150,24 @@ public class new_drop extends AppCompatActivity {
         }
 //        ArrayList<Restaurant> temp = sortRestaurant(tag);
         sortRestaurant(tag);
-        for (int i = 0; i < restaurantList.size(); i++){
-            restaurant[i] = restaurantList.get(i).toString();
-        }
-        recyclerView.setAdapter(new ShopAdapter(restaurant));
+//        for (int i = 0; i < restaurantList.size(); i++){
+//            restaurantInfo[i] = restaurantList.get(i).toString();
+//        }
+        shopAdapter = new ShopAdapter(restaurantList);
+        recyclerView.setAdapter(shopAdapter);
+        shopAdapter.setOnItemClickListener(new ShopAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view, String data) {
+                Intent intent = new Intent(new_drop.this, com.example.sihan.restaurantrecommendation.Activity.Restaurant.class);
+                intent.putExtra("data", data);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View view, String data) {
+
+            }
+        });
 //        String str = "";
 //        for (int i = 0; i <restaurantList.size(); i++)
 //            str += restaurantList.get(i).toString() + ";";
@@ -160,7 +175,7 @@ public class new_drop extends AppCompatActivity {
         updateTabData();
     }
 
-    public class DividerLine extends RecyclerView.ItemDecoration {
+    public static class DividerLine extends RecyclerView.ItemDecoration {
         public static final int HORIZONTAL = LinearLayoutManager.HORIZONTAL;
         public static final int VERTICAL = LinearLayoutManager.VERTICAL;
         private Paint paint;

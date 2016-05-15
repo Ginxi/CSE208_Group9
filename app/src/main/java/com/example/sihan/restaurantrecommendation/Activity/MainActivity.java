@@ -2,62 +2,38 @@ package com.example.sihan.restaurantrecommendation.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MotionEvent;
-import android.view.View;
+
+import com.avos.avoscloud.AVOSCloud;
+import com.example.sihan.restaurantrecommendation.R;
+
+
 
 public class MainActivity extends AppCompatActivity {
-    private boolean active = true;
-    private int splashTime = 5000;    // time to display the splash screen in ms
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.sihan.restaurantrecommendation.R.layout.activity_main);
-
-        findViewById(com.example.sihan.restaurantrecommendation.R.id.login).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Restaurant.class));
-            }
-        });
-        new Thread() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                try {
-                    int waited = 0;
-                    while (active && (waited < splashTime)) {
-                        sleep(100);
-                        if (active) {
-                            waited += 100;
-                        }
-                    }
-                } catch(InterruptedException e) {
-                } finally {
-                    finish();
-
-                    // Run next activity
-                     Intent intent = new Intent(MainActivity.this, Login.class);
-                    startActivity(intent);
-                    //stop();
-                }
+                Intent mainIntent = new Intent(MainActivity.this, Login.class);
+                MainActivity.this.startActivity(mainIntent);
+                MainActivity.this.finish();
+                overridePendingTransition(R.anim.alpha_in,
+                        R.anim.alpha_out);
             }
-        }.start();
+        }, 800);
+
+        AVOSCloud.initialize(this, "MQAdXbdNgXPI1YzlpHuAYI9O-gzGzoHsz", "Sz0KIPvyscUKScbCEGgHRvj7");
+
+
     }
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(com.example.sihan.restaurantrecommendation.R.menu.menu_main, menu);
-        return true;
-    }
-
-    public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            active = false;
-        }
-        return true;
-    }
 }
